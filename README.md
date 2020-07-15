@@ -1,10 +1,12 @@
-# WordPress Theme Aquila 🎨
+# [WordPress Theme Aquila](https://youtu.be/lNtw4yxEydM) 🎨
 [![Project Status: WIP – Initial development is in progress.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 * A WordPress theme Project for Advanced WordPress Theme Development Course.
-This theme uses Bootstrap. [Learn](https://www.youtube.com/watch?v=lNtw4yxEydM&list=PLD8nQCAhR3tT3ehpyOpoYeUj3KHDEVK9h&index=2&t=0s) to build an Advanced WordPress Theme from scratch
+This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQCAhR3tT3ehpyOpoYeUj3KHDEVK9h) to build an Advanced WordPress Theme from scratch
 
-![](demo/banner.png)
+<a href="https://codeytek.com/course/advanced-wordpress-theme-development-course/" target="_blank">
+<img src="https://codeytek.com/wp-content/uploads/2020/07/banner.png" alt="WordPress theme development banner" />
+</a>
 
 ## [Tutorial Course](https://codeytek.com/course/advanced-wordpress-theme-development-course/)
 

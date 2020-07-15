@@ -1,4 +1,4 @@
-# [WordPress Theme Aquila](https://youtu.be/lNtw4yxEydM) 🎨
+# [WordPress Theme - Aquila](https://youtu.be/lNtw4yxEydM) 🎨
 [![Project Status: WIP – Initial development is in progress.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 * A WordPress theme Project for Advanced WordPress Theme Development Course.

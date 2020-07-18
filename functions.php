@@ -21,13 +21,3 @@ function aquila_get_theme_instance() {
 }
 
 aquila_get_theme_instance();
-
-function aquila_enqueue_scripts() {
-
-
-
-
-
-}
-
-add_action( 'wp_enqueue_scripts', 'aquila_enqueue_scripts' );

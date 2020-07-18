@@ -153,20 +153,6 @@ class AQUILA_THEME {
 		add_theme_support( 'align-wide' );
 
 		/**
-		 * Register Nav Menu.
-		 *
-		 * Here primary is 'theme-location'
-		 *
-		 * @see Register Menus
-		 * @link https://developer.wordpress.org/themes/functionality/navigation-menus/#register-menus
-		 */
-		register_nav_menus(
-			[
-				'primary' => esc_html__( 'Primary Menu', 'blank-theme' ),
-			]
-		);
-
-		/**
 		 * Set the maximum allowed width for any content in the theme,
 		 * like oEmbeds and images added to posts.
 		 *

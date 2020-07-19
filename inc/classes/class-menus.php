@@ -46,10 +46,10 @@ class Menus {
 		// Get all locations
 		$locations = get_nav_menu_locations();
 
-		// Get object id by location
-		$menu_object = wp_get_nav_menu_object( $locations[$location] );
+		// Get object id by location.
+		$menu_id = $locations[$location];
 
-		return ! empty( $menu_object ) ? $menu_object->term_id : '';
+		return ! empty( $menu_id ) ? $menu_id : '';
 
 	}
 

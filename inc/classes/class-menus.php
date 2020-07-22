@@ -5,7 +5,7 @@
  * @package Aquila
  */
 
-namespace Aquila_Theme\Inc;
+namespace AQUILA_THEME\Inc;
 
 use AQUILA_THEME\Inc\Traits\Singleton;
 

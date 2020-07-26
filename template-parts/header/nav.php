@@ -12,21 +12,22 @@ $header_menus = wp_get_nav_menu_items( $header_menu_id );
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<?php
-	if ( function_exists( 'the_custom_logo' ) ) {
-		the_custom_logo();
-	}
-	?>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="container">
 		<?php
-		if ( ! empty( $header_menus ) && is_array( $header_menus ) ) {
-			?>
-			<ul class="navbar-nav mr-auto">
-				<?php
+		if ( function_exists( 'the_custom_logo' ) ) {
+			the_custom_logo();
+		}
+		?>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<?php
+			if ( ! empty( $header_menus ) && is_array( $header_menus ) ) {
+				?>
+				<ul class="navbar-nav mr-auto">
+					<?php
 					foreach ( $header_menus as $menu_item ) {
 						if ( ! $menu_item->menu_item_parent ) {
 
@@ -50,13 +51,13 @@ $header_menus = wp_get_nav_menu_items( $header_menu_id );
 									</a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<?php
-											foreach ( $child_menu_items as $child_menu_item ) {
-												?>
-												<a class="dropdown-item" href="<?php echo esc_url( $child_menu_item->url ); ?>">
-													<?php echo esc_html( $child_menu_item->title ); ?>
-												</a>
-												<?php
-											}
+										foreach ( $child_menu_items as $child_menu_item ) {
+											?>
+											<a class="dropdown-item" href="<?php echo esc_url( $child_menu_item->url ); ?>">
+												<?php echo esc_html( $child_menu_item->title ); ?>
+											</a>
+											<?php
+										}
 										?>
 									</div>
 								</li>
@@ -66,15 +67,16 @@ $header_menus = wp_get_nav_menu_items( $header_menu_id );
 							<?php
 						}
 					}
-				?>
-			</ul>
-			<?php
-		}
-		?>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
+					?>
+				</ul>
+				<?php
+			}
+			?>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
 	</div>
 </nav>
 

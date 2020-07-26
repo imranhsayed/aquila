@@ -16,6 +16,9 @@ This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQC
 
 - ![](demo/features-two.png)
 
+- Custom front page.
+- Custom Blog page with posts displayed in grid format using bootstrap.
+
 ## Maintainer
 
 | Name                                                   | Github Username |
@@ -26,6 +29,12 @@ This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQC
 
 1. Clone the WordPress theme [aquila](https://github.com/imranhsayed/aquila) in your WordPress
 themes directory and activate it.
+
+## Dashboard Setup.
+
+1. Create pages called 'Home' and 'Blog' and set them from Appearance > Customizer > Homepage Settings like so:
+
+- ![](demo/home-page-customizer-setup.png)
 
 ## Development ( To be added )
 
@@ -70,4 +79,57 @@ Format code with prettier
 
 ```bash
 npm run format-js
+```
+
+Directory Structure
+
+```php
+.
+├── README.md
+├── assets
+│   ├── main.js
+│   └── src
+│       └── library
+│           ├── css
+│           │   ├── bootstrap-grid.min.css
+│           │   └── bootstrap.min.css
+│           └── js
+│               └── bootstrap.min.js
+├── demo
+│   ├── banner.png
+│   ├── blog-page.png
+│   ├── features-one.png
+│   ├── features-two.png
+│   └── home-page-customizer-setup.png
+├── footer.php
+├── front-page.php ( Home Page )
+├── functions.php
+├── header.php
+├── inc
+│   ├── classes
+│   │   ├── class-aquila-theme.php
+│   │   ├── class-assets.php
+│   │   ├── class-menus.php
+│   │   └── class-meta-boxes.php
+│   ├── helpers
+│   │   ├── autoloader.php
+│   │   └── template-tags.php
+│   └── traits
+│       └── trait-singleton.php
+├── index.php ( Blog page )
+├── page.php  ( Single Page )
+├── screenshot.png
+├── single.php ( Single Post Page )
+├── style.css
+└── template-parts
+    ├── components
+    │   └── blog
+    │       ├── entry-content.php
+    │       ├── entry-footer.php
+    │       ├── entry-header.php
+    │       └── entry-meta.php
+    ├── content-none.php
+    ├── content.php
+    └── header
+        └── nav.php
 ```

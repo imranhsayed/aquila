@@ -33,7 +33,7 @@ function get_the_post_custom_thumbnail( $post_id, $size = 'featured-thumbnail', 
 			get_post_thumbnail_id( $post_id ),
 			$size,
 			false,
-			$additional_attributes
+			$attributes
 		);
 	}
 
@@ -48,7 +48,7 @@ function get_the_post_custom_thumbnail( $post_id, $size = 'featured-thumbnail', 
  * @param array  $additional_attributes Additional attributes.
  */
 function the_post_custom_thumbnail( $post_id, $size = 'featured-thumbnail', $additional_attributes = [] ) {
-	echo get_the_post_thumbnail( $post_id, $size, $additional_attributes );
+	echo get_the_post_custom_thumbnail( $post_id, $size, $additional_attributes );
 }
 
 /**

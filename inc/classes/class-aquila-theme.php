@@ -90,6 +90,9 @@ class AQUILA_THEME {
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
+
+
 		/**
 		 * Register image sizes.
 		 */

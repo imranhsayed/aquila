@@ -76,7 +76,7 @@ function aquila_posted_on() {
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
-	echo '<span class="posted-one text-secondary">' . $posted_on . '</span>';
+	echo '<span class="posted-on text-secondary">' . $posted_on . '</span>';
 }
 
 /**

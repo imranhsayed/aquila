@@ -71,7 +71,7 @@ class Sidebars {
 
 	}
 
-	function register_clock_widget() {
+	public function register_clock_widget() {
 		register_widget( 'AQUILA_THEME\Inc\Clock_Widget' );
 	}
 

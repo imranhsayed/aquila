@@ -12,6 +12,7 @@ use WP_Widget;
 use AQUILA_THEME\Inc\Traits\Singleton;
 
 class Clock_Widget extends WP_Widget {
+
 	use Singleton;
 
 	/**
@@ -21,7 +22,7 @@ class Clock_Widget extends WP_Widget {
 		parent::__construct(
 			'clock_widget', // Base ID
 			'Clock', // Name
-			array( 'description' => __( 'A Clock Widget', 'aquila' ), ) // Args
+			[ 'description' => __( 'Clock Widget', 'aquila' ), ] // Args
 		);
 	}
 
@@ -36,9 +37,11 @@ class Clock_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
+
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
 		echo $before_widget;
+
 		if ( ! empty( $title ) ) {
 			echo $before_title . $title . $after_title;
 		}
@@ -70,7 +73,7 @@ class Clock_Widget extends WP_Widget {
 		}
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+			<label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:', 'aquila' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
 			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
 			       value="<?php echo esc_attr( $title ); ?>"/>

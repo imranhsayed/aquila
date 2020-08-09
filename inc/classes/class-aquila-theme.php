@@ -15,7 +15,6 @@ class AQUILA_THEME {
 	protected function __construct() {
 
 		// Load class.
-
 		Assets::get_instance();
 		Menus::get_instance();
 		Meta_Boxes::get_instance();

@@ -29,6 +29,11 @@ class AQUILA_THEME {
 		 * Actions.
 		 */
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
+		add_action( 'widgets_init', [ $this, 'register_clock_widget' ] );
+	}
+
+	function register_clock_widget() {
+		register_widget( 'AQUILA_THEME\Inc\Clock_Widget' );
 	}
 
 	/**

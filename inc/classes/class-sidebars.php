@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme widgets.
+ * Theme Sidebars.
  *
  * @package Aquila
  */
@@ -12,7 +12,7 @@ use AQUILA_THEME\Inc\Traits\Singleton;
 /**
  * Class Assets
  */
-class Widgets {
+class Sidebars {
 
 	use Singleton;
 
@@ -33,7 +33,7 @@ class Widgets {
 		/**
 		 * Actions
 		 */
-		add_action( 'widgets_init', [ $this, 'register_widgets' ] );
+		add_action( 'widgets_init', [ $this, 'register_sidebars' ] );
 
 	}
 
@@ -42,7 +42,7 @@ class Widgets {
 	 *
 	 * @action widgets_init
 	 */
-	public function register_widgets() {
+	public function register_sidebars() {
 
 		register_sidebar(
 			[

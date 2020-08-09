@@ -19,7 +19,7 @@ class AQUILA_THEME {
 		Assets::get_instance();
 		Menus::get_instance();
 		Meta_Boxes::get_instance();
-		Widgets::get_instance();
+		Sidebars::get_instance();
 
 		$this->setup_hooks();
 	}

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/imranhsayed/aquila/issues"
   },
-  "homepage": "https://github.com/imranhsayed/aquila#readme"
+  "homepage": "https://github.com/imranhsayed/aquila#readme",
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.4"
+  }
 }

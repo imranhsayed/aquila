@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/imranhsayed/aquila#readme",
   "devDependencies": {
-    "@babel/preset-react": "^7.10.4"
+    "@babel/preset-react": "^7.10.4",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3",
+    "sass-mq": "^5.0.1"
   }
 }

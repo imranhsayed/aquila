@@ -130,18 +130,6 @@ class AQUILA_THEME {
 			]
 		);
 
-		/**
-		 * It allows you to link a custom stylesheet file to the TinyMCE editor within the post edit screen.
-		 *
-		 * Since we are not passing any parameter to the function,
-		 * it will by default, link the editor-style.css file located directly under the current theme directory.
-		 * You can can add 'editor-style.css' if you like to support TinyMCE editor styles.
-		 *
-		 * @see add_editor_style(
-		 * @link https://developer.wordpress.org/reference/functions/add_editor_style/
-		 */
-		add_editor_style();
-
 		// Gutenberg theme support.
 
 		/**
@@ -165,8 +153,30 @@ class AQUILA_THEME {
 		add_theme_support( 'align-wide' );
 
 		/**
+		 * Loads the editor styles in the Gutenberg editor.
+		 *
+		 * Editor Styles allow you to provide the CSS used by WordPress’ Visual Editor so that it can match the frontend styling.
+		 * If we don't add this, the editor styles will only load in the classic editor ( tiny mice )
+		 */
+		add_theme_support( 'editor-styles' );
+		/**
+		 *
+		 * Path to our custom editor style.
+		 * It allows you to link a custom stylesheet file to the TinyMCE editor within the post edit screen.
+		 *
+		 * Since we are not passing any parameter to the function,
+		 * it will by default, link the editor-style.css file located directly under the current theme directory.
+		 * In our case since we are passing 'assets/build/css/editor.css' path it will use that.
+		 * You can change the name of the file or path and replace the path here.
+		 *
+		 * @see add_editor_style(
+		 * @link https://developer.wordpress.org/reference/functions/add_editor_style/
+		 */
+		add_editor_style( 'assets/build/css/editor.css' );
+
+		/**
 		 * Set the maximum allowed width for any content in the theme,
-		 * like oEmbeds and images added to posts.
+		 * like oEmbeds and images added to posts
 		 *
 		 * @see Content Width
 		 * @link https://codex.wordpress.org/Content_Width

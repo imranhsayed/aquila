@@ -29,7 +29,7 @@ const output = {
  */
 const plugins = ( argv ) => [
 	new CleanWebpackPlugin( {
-		cleanStaleWebpackAssets: ( argv.mode === 'production' ) // Automatically remove all unused webpack assets on rebuild, when set to true in production. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
+		cleanStaleWebpackAssets: ( 'production' === argv.mode  ) // Automatically remove all unused webpack assets on rebuild, when set to true in production. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
 	} ),
 
 	new MiniCssExtractPlugin( {
@@ -62,17 +62,6 @@ const rules = [
 			}
 		}
 	},
-	{
-		test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-		exclude: [ IMG_DIR, /node_modules/ ],
-		use: {
-			loader: 'file-loader',
-			options: {
-				name: '[path][name].[ext]',
-				publicPath: 'production' === process.env.NODE_ENV ? '../' : '../../'
-			}
-		}
-	}
 ];
 
 /**

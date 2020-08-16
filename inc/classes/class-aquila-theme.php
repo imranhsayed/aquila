@@ -166,7 +166,7 @@ class AQUILA_THEME {
 
 		/**
 		 * Set the maximum allowed width for any content in the theme,
-		 * like oEmbeds and images added to posts.
+		 * like oEmbeds and images added to posts
 		 *
 		 * @see Content Width
 		 * @link https://codex.wordpress.org/Content_Width

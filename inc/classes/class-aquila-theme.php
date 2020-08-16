@@ -165,6 +165,21 @@ class AQUILA_THEME {
 		add_theme_support( 'align-wide' );
 
 		/**
+		 * Loads the editor styles in the Gutenberg editor.
+		 *
+		 * Editor Styles allow you to provide the CSS used by WordPress’ Visual Editor so that it can match the frontend styling.
+		 * If we don't add this, the editor styles will only load in the classic editor ( tiny mice )
+		 */
+		add_theme_support( 'editor-styles' );
+
+		/**
+		 * Path to our custom editor style.
+		 *
+		 * You can change the name of the file or path and replace the path here.
+		 */
+		add_editor_style( 'assets/build/css/editor.css' );
+
+		/**
 		 * Set the maximum allowed width for any content in the theme,
 		 * like oEmbeds and images added to posts.
 		 *

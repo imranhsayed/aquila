@@ -1,0 +1,337 @@
+// View applied styles by going to https://your-site.com/wp-content/themes/videojet/assets/style-guide/elements.html
+
+html {
+	box-sizing: border-box;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* stylelint-enable */
+
+/**
+ * 1. Fallback for when there is no custom background color defined. [WordPress]
+ * 2. Remove default margin. [normalize.css]
+ * 3. Set the base elements `font-size` to the value of your choosing.
+ * 4. Work out the unitless `line-height` for your project based around your
+ *    desired `line-height` (defined previously in pixels), and your projects
+ *    base font size.
+ */
+body {
+	margin: 0;
+
+	@include font-family();
+	@include body-text( body );
+
+	background: $color__background-body;
+	color: $color__body-text;
+
+	// WP Editor
+	&.mce-content-body {
+		font-family: inherit;
+		margin: 15px;
+	}
+}
+
+blockquote, q {
+	quotes: "" "";
+	border-left: 4px solid $gray-150;
+	font-style: italic;
+	margin: 0 0 $font__base-line-height $font__base-line-height;
+	padding-left: 16px;
+
+	&::before,
+	&::after {
+		content: "";
+	}
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+figure {
+	max-width: 100%;
+}
+
+a {
+	cursor: pointer;
+	color: $color__link;
+	text-decoration: none;
+	transition: 0.3s;
+
+	&:focus {
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+
+	&:hover,
+	a:active {
+		color: $color__link-hover;
+		text-decoration: underline;
+		outline: 0;
+	}
+}
+
+sub,
+sup {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+
+h1 {
+	@include body-text( h1 )
+}
+
+h2 {
+	@include body-text( h2 )
+}
+
+h3 {
+	@include body-text( h3 )
+}
+
+h4 {
+	@include body-text( h4 )
+}
+
+h5 {
+	@include body-text( h5 )
+}
+
+h6 {
+	@include body-text( h6 )
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 10px 0;
+	text-rendering: optimizelegibility;
+}
+
+/*---------------------------
+		Lists
+---------------------------*/
+
+ul,
+ol {
+	margin: 0 0 18px 0;
+
+	&.no-bullet {
+		&,
+		ul,
+		ol {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	}
+}
+
+ul {
+	padding: 0;
+	margin: 0 0 10px 25px;
+
+	@include mq( medium ) {
+		margin: 0 0 5px 0;
+	}
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 18px;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 24px 24px;
+}
+
+p {
+	&:empty {
+		display: none;
+	}
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+
+table {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	@include mq( medium ) {
+		max-width: 350px;
+	}
+}
+
+/*------------------------------------*\
+    Form Fields
+\*------------------------------------*/
+
+input, button, select, textarea {
+	font-family: $font__main;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	display: inline-block;
+	height: 20px;
+	width: 206px;
+	padding: 14px 6px; /* adjusting border-box difference on live site */
+	margin: 0 0 10px;
+	line-height: 1.43;
+	color: $gray-300;
+	vertical-align: middle;
+	border-radius: 4px;
+	background-color: $white;
+	border: 1px solid $gray-200;
+	box-shadow: inset 0 1px 1px $opacity-black-075;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+textarea {
+	height: auto;
+	padding: 4px 6px;
+	max-width: 100%;
+	outline: none;
+	overflow: auto; // Remove the default vertical scrollbar in IE 10+.
+}
+
+select {
+	box-shadow: none;
+	transition: none;
+	width: 220px;
+	padding: 0px 6px;
+}
+
+select, input[type="file"] {
+	height: 30px;
+	line-height: 2.15;
+}
+
+button {
+	margin: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+	@include body-text( body );
+	font-weight: 400;
+}
+
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+	cursor: pointer;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+/*------------------------------------*\
+    #OTHER
+\*------------------------------------*/
+
+pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px; // Exceptional font-size.
+	line-height: 1.54;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	background-color: $gray-160;
+	border: 1px solid $opacity-black-015;
+	border-radius: 4px;
+	font-family: $font__code;
+}
+
+code {
+	padding: 2px 4px;
+	color: #d14;
+	white-space: nowrap;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	font-family: $font__code;
+	@include body-text( s );
+	border-radius: 3px;
+}
+
+hr {
+	margin: 20px 0;
+	border: 0;
+	border-top: 1px solid $color__background-hr;
+	border-bottom: 1px solid $white;
+	box-sizing: content-box;
+}

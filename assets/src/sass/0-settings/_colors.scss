@@ -1,0 +1,96 @@
+
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+
+
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+
+$black: #000000;
+$black-900: #3d3d3d;
+$black-860: #595858;
+$black-850: #323232;
+$black-800: #414042;
+$black-600: #3d3e40;
+$black-700: #595959;
+$black-100: #282828;
+$black-50: #5d5d5d;
+
+$white: #ffffff;
+
+$dark-gray-200: #333;
+$dark-gray-100: #424242;
+
+$gray-100: #eff3f6;
+$gray-150: #eeeeee;
+$gray-160: #E2EAEE;
+$gray-200: #cccccc;
+$gray-300: #555555;
+
+$blue-900: #3344d9;
+$blue-800: #322ebb;
+$blue-500: #355180;
+$blue-300: #6258d5;
+$blue-200: #0673a9;
+$blue-100: #0192cc;
+$blue-80: #0183c6;
+$blue-40: #2791db;
+$blue-50: #39a7e2;
+$blue-40: #38affd;
+$blue-20: #e4f3fd;
+
+$purple-800: #4046ff;
+
+/*---------------------------------
+		Opacity
+-----------------------------------*/
+
+$opacity-black-075: rgba(0, 0, 0, 0.075);
+$opacity-black-015: rgba(0, 0, 0, 0.15);
+
+/*---------------------------------
+		Gradient
+-----------------------------------*/
+
+$header-gradient: linear-gradient( to bottom, $black-900 0%, $black-100 100% );
+$link-hover-gradient: linear-gradient( to bottom, $blue-100 0%, $blue-200 100% );
+
+/*---------------------------------
+		Element Colors
+-----------------------------------*/
+
+// <body>
+$color__body-text: $black-800;
+$color__background-body: $white;
+
+// <a>
+$color__link: $blue-100;
+$color__link-hover: $blue-500;
+
+$color__background-button: $gray-100;
+$color__background-button-hover: $gray-100;
+$color__border-button: $dark-gray-200;
+$color__border-button-hover: $black;
+
+$color__border-input: $gray-100;
+$color__text-input: $dark-gray-200;
+$color__text-input-focus: $black;
+
+// <pre>, <code>
+$color__background-pre: $gray-100;
+
+// <hr>
+$color__background-hr: $gray-150;
+$color__background-table: $blue-20;
+
+/*---------------------------------
+		Border Colors
+-----------------------------------*/
+
+$color__border-light: $gray-100;
+$color__border-fieldset: $gray-200;
+$color__border-table: $gray-200;
+$color__border-header: $gray-300;
+

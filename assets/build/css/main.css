@@ -1,0 +1,664 @@
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+/*---------------------------------
+		Opacity
+-----------------------------------*/
+/*---------------------------------
+		Gradient
+-----------------------------------*/
+/*---------------------------------
+		Element Colors
+-----------------------------------*/
+/*---------------------------------
+		Border Colors
+-----------------------------------*/
+/*----------------
+		Font
+------------------*/
+/*---------------------------------
+		Body Text Font Sizes
+-----------------------------------*/
+/**
+ * Add font scale with media query as per configuration on $body-text
+ * Ex: @include body-text( h1 );
+ * This will add font-size and line-height with different breakpoints.
+ */
+/* normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: 700; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #cccccc;
+  color: #000000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -8px; }
+
+sub {
+  bottom: -4px; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */ }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #cccccc;
+  margin: 0 2px;
+  padding: 6px 10px 12px; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: 700; }
+
+/* Note: This file is updated by Sagar, To remove ducplication of styles. */
+figure {
+  margin: 0;
+  max-width: 100%; }
+
+/*---------------------------
+		Accessiblity
+---------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  left: -999em;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal; }
+  .screen-reader-text:focus {
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto;
+    clip-path: none;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/*---------------------------
+		Alignments
+---------------------------*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-justify {
+  text-align: justify; }
+
+/*---------------------------
+		Others
+---------------------------*/
+.hide {
+  display: none; }
+
+.hidden {
+  visibility: hidden; }
+
+.visible {
+  visibility: visible; }
+
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+/* stylelint-enable */
+/**
+ * 1. Fallback for when there is no custom background color defined. [WordPress]
+ * 2. Remove default margin. [normalize.css]
+ * 3. Set the base elements `font-size` to the value of your choosing.
+ * 4. Work out the unitless `line-height` for your project based around your
+ *    desired `line-height` (defined previously in pixels), and your projects
+ *    base font size.
+ */
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  background: #ffffff;
+  color: #414042; }
+  body.mce-content-body {
+    font-family: inherit;
+    margin: 15px; }
+
+blockquote, q {
+  quotes: "" "";
+  border-left: 4px solid #eeeeee;
+  font-style: italic;
+  margin: 0 0 30px 30px;
+  padding-left: 16px; }
+  blockquote::before, blockquote::after, q::before, q::after {
+    content: ""; }
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle; }
+
+figure {
+  max-width: 100%; }
+
+a {
+  cursor: pointer;
+  color: #0192cc;
+  text-decoration: none;
+  transition: 0.3s; }
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
+  a:hover,
+  a a:active {
+    color: #355180;
+    text-decoration: underline;
+    outline: 0; }
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+h1 {
+  font-size: 31.5px;
+  line-height: 1.27; }
+
+h2 {
+  font-size: 31.5px;
+  line-height: 1.27; }
+
+h3 {
+  font-size: 24.5px;
+  line-height: 1.64; }
+
+h4 {
+  font-size: 17.5px;
+  line-height: 1.142; }
+
+h5 {
+  font-size: 14px;
+  line-height: 1.43; }
+
+h6 {
+  font-size: 11.9px;
+  line-height: 1.681; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  text-rendering: optimizelegibility; }
+
+/*---------------------------
+		Lists
+---------------------------*/
+ul,
+ol {
+  margin: 0 0 18px 0; }
+  ul.no-bullet,
+  ul.no-bullet ul,
+  ul.no-bullet ol,
+  ol.no-bullet,
+  ol.no-bullet ul,
+  ol.no-bullet ol {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+
+ul {
+  padding: 0;
+  margin: 0 0 10px 25px; }
+  @media (min-width: 48em) {
+    ul {
+      margin: 0 0 5px 0; } }
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 18px; }
+
+dt {
+  font-weight: 700; }
+
+dd {
+  margin: 0 24px 24px; }
+
+p:empty {
+  display: none; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  @media (min-width: 48em) {
+    table {
+      max-width: 350px; } }
+
+/*------------------------------------*\
+    Form Fields
+\*------------------------------------*/
+input, button, select, textarea {
+  font-family: "Lato", sans-serif; }
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 20px;
+  width: 206px;
+  padding: 14px 6px;
+  /* adjusting border-box difference on live site */
+  margin: 0 0 10px;
+  line-height: 1.43;
+  color: #555555;
+  vertical-align: middle;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s; }
+
+textarea {
+  height: auto;
+  padding: 4px 6px;
+  max-width: 100%;
+  outline: none;
+  overflow: auto; }
+
+select {
+  box-shadow: none;
+  transition: none;
+  width: 220px;
+  padding: 0px 6px; }
+
+select, input[type="file"] {
+  height: 30px;
+  line-height: 2.15; }
+
+button {
+  margin: 0; }
+
+label {
+  display: block;
+  margin-bottom: 5px; }
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 400; }
+
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer; }
+
+input[type="search"] {
+  -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+/*------------------------------------*\
+    #OTHER
+\*------------------------------------*/
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.54;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  background-color: #E2EAEE;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: "Lato", sans-serif, monospace; }
+
+code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  font-family: "Lato", sans-serif, monospace;
+  font-size: 12px;
+  border-radius: 3px; }
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+  box-sizing: content-box; }
+
+/*-----------
+	Media
+-------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%; }
+
+.site-content {
+  word-wrap: break-word; }
+
+/*---------------------------
+      Icons
+---------------------------*/
+
+
+/*# sourceMappingURL=main.css.map*/

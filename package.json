@@ -1,0 +1,23 @@
+{
+  "name": "aquila",
+  "version": "1.0.0",
+  "description": "[![Project Status: WIP – Initial development is in progress.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranhsayed/aquila.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imranhsayed/aquila/issues"
+  },
+  "homepage": "https://github.com/imranhsayed/aquila#readme",
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.4"
+  }
+}

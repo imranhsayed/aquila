@@ -1,5 +1,5 @@
 # [WordPress Theme - Aquila](https://youtu.be/lNtw4yxEydM) 🎨
-[![Project Status: WIP – Initial development is in progress.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 * A WordPress theme Project for Advanced WordPress Theme Development Course.
 This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQCAhR3tT3ehpyOpoYeUj3KHDEVK9h) to build an Advanced WordPress Theme from scratch
@@ -37,8 +37,6 @@ themes directory and activate it.
 - ![](demo/home-page-customizer-setup.png)
 
 ## Development ( To be added )
-
-Below features will be added later ( TODO )
 
 **Install**
 

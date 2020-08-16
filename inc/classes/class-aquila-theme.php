@@ -29,6 +29,7 @@ class AQUILA_THEME {
 		 * Actions.
 		 */
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
+
 	}
 
 	/**

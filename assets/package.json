@@ -21,6 +21,7 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "cssnano": "^4.1.10",
@@ -34,5 +35,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {
+    "@babel/preset-react": "^7.10.4"
+  }
 }

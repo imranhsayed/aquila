@@ -1,0 +1,15 @@
+
+%clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+/// Center block
+%center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

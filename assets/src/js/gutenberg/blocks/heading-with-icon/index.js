@@ -49,7 +49,7 @@ registerBlockType( 'aquila-blocks/heading', {
 	 *
 	 * @type {string}
 	 */
-	category: 'widgets',
+	category: 'aquila',
 
 	/**
 	 * Attributes.

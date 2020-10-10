@@ -6,5 +6,6 @@ export const getIconComponent = (option) => {
 		dos: SvgIcons.Check,
 		donts: SvgIcons.Cross
 	}
-	return (isEmpty( option ) && (option in IconsMap) ) ? IconsMap[option] : IconsMap['dos']
+
+	return ( ! isEmpty( option ) && (option in IconsMap) ) ? IconsMap[option] : IconsMap['dos']
 }

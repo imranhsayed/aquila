@@ -25,50 +25,34 @@ registerBlockType( 'aquila-blocks/dos-and-donts', {
 	 *
 	 * @type {string}
 	 */
-	title: __( 'Heading with Icon', 'aquila' ),
+	title: __( 'Dos and dont\'s', 'aquila' ),
 
 	/**
 	 * Block icon.
 	 *
 	 * @type {string}
 	 */
-	icon: 'admin-customizer',
+	icon: 'editor-table',
 
 	/**
 	 * Block description.
 	 *
 	 * @type {string}
 	 */
-	description: __( 'Add Heading and select Icons', 'aquila' ),
+	description: __( 'Add headings and text', 'aquila' ),
 
 	/**
 	 * Block category.
 	 *
 	 * @type {string}
 	 */
-	category: 'widgets',
-
-	/**
-	 * Attributes.
-	 */
-	attributes: {
-		option: {
-			type: 'string',
-			default: 'dos'
-		},
-	},
+	category: 'aquila',
 
 	edit: Edit,
 
-	save( { attributes: { option } } ) {
-
-		const HeadingIcon = getIconComponent( option );
-
+	save() {
 		return (
-			<div className="aquila-icon-heading">
-		        <span className="aquila-icon-heading__heading">
-		          <HeadingIcon/>
-		        </span>
+			<div className="aquila-dos-and-donts">
 				<InnerBlocks.Content/>
 			</div>
 		);

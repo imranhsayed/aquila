@@ -2,6 +2,7 @@
  * Internal Dependencies.
  */
 import { getIconComponent } from './icons-map';
+import { RichText } from '@wordpress/block-editor';
 
 /**
  * WordPress Dependencies.
@@ -11,23 +12,10 @@ import {
 	RadioControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 
-const INNER_BLOCKS_TEMPLATE = [
-	[
-		'core/heading',
-		{
-			label: __( 'Heading with Icon', 'aquila' ),
-			level: 4,
-			content: '<strong><span class="icon-heading">Dos</span></strong>',
-		},
-	],
-];
-
-const ALLOWED_BLOCKS = [ 'core/heading' ];
-
-const Edit = ( { attributes, setAttributes } ) => {
-	const { option } = attributes;
+const Edit = ( { className, attributes, setAttributes } ) => {
+	const { option, content } = attributes;
 
 	const HeadingIcon = getIconComponent( option );
 
@@ -36,12 +24,14 @@ const Edit = ( { attributes, setAttributes } ) => {
 	      <span className="aquila-icon-heading__heading">
 	        <HeadingIcon/>
 	      </span>
-			<InnerBlocks
-				template={ INNER_BLOCKS_TEMPLATE }
-				allowedBlocks={ ALLOWED_BLOCKS }
-				templateLock={ true }
+			{/* You can also pass formattingControls={ [ 'bold', 'italic' ] } to allow the content to be made bold or italic, but do not allow other formatting options */}
+			<RichText
+				tagName="h4" // The tag here is the element output and editable in the admin
+				className={ className }
+				value={ content } // Any existing content, either from the database or an attribute default
+				onChange={ ( content ) => setAttributes( { content } ) } // Store updated content as a block attribute
+				placeholder={ __( 'Heading...', 'aquila' ) } // Display this text before any content has been added by the user
 			/>
-
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'aquila' ) }

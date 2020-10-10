@@ -5,7 +5,7 @@
  * @package Aquila
  */
 
-import { getIconComponent } from './icons-map'
+import { getIconComponent } from './icons-map';
 
 /**
  * Internal dependencies.

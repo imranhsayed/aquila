@@ -1,12 +1,7 @@
 /**
- * External Dependencies.
- */
-import { isEmpty } from 'lodash';
-
-/**
  * Internal Dependencies.
  */
-import { getIconComponent } from './icons-map'
+import { getIconComponent } from './icons-map';
 
 /**
  * WordPress Dependencies.
@@ -30,12 +25,10 @@ const INNER_BLOCKS_TEMPLATE = [
 	],
 ];
 
-const ALLOWED_BLOCKS = ['core/heading'];
+const ALLOWED_BLOCKS = [ 'core/heading' ];
 
 const Edit = ( { attributes, setAttributes } ) => {
-	const {
-		      option,
-	      } = attributes;
+	const { option } = attributes;
 
 	const HeadingIcon = getIconComponent( option );
 
@@ -69,7 +62,7 @@ const Edit = ( { attributes, setAttributes } ) => {
 							{ label: 'Dont\'s', value: 'donts' },
 						] }
 						onChange={ ( option ) => {
-							setAttributes( { option } )
+							setAttributes( { option } );
 						} }
 					/>
 				</PanelBody>

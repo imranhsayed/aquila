@@ -12,7 +12,6 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { useEffect } from '@wordpress/element';
 
 const INNER_BLOCKS_TEMPLATE = [
 	[

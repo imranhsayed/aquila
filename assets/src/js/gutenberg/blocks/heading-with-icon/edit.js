@@ -1,7 +1,7 @@
 /**
  * External Dependencies.
  */
-import {isEmpty} from 'lodash';
+import { isEmpty } from 'lodash';
 
 /**
  * Internal Dependencies.
@@ -25,24 +25,17 @@ const INNER_BLOCKS_TEMPLATE = [
 		{
 			label: __( 'Heading with Icon', 'aquila' ),
 			level: 4,
-			content: '<span class="stats-heading">Dos</span>',
+			content: '<strong><span class="icon-heading">Dos</span></strong>',
 		},
 	],
 ];
 
-const ALLOWED_BLOCKS = [ 'core/heading' ];
+const ALLOWED_BLOCKS = ['core/heading'];
 
 const Edit = ( { attributes, setAttributes } ) => {
 	const {
 		      option,
 	      } = attributes;
-
-	useEffect( () => {
-		// If option not set, set the initial value of the option to 'dos'.
-		if ( isEmpty( option ) && ! ( 0 < option ) ) {
-			setAttributes( { option: 'dos' } );
-		}
-	}, [] );
 
 	const HeadingIcon = getIconComponent( option );
 
@@ -75,7 +68,9 @@ const Edit = ( { attributes, setAttributes } ) => {
 							{ label: 'Dos', value: 'dos' },
 							{ label: 'Dont\'s', value: 'donts' },
 						] }
-						onChange={ ( option ) => { setAttributes( { option } ) } }
+						onChange={ ( option ) => {
+							setAttributes( { option } )
+						} }
 					/>
 				</PanelBody>
 			</InspectorControls>

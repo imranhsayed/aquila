@@ -52,6 +52,5 @@
   },
   "browserslist": [
 	"defaults"
-  ],
-  "dependencies": {}
+  ]
 }

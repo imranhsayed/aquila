@@ -17,7 +17,7 @@ import Edit from './edit';
  */
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 /**
  * Register block type.
@@ -59,11 +59,17 @@ registerBlockType( 'aquila-blocks/heading', {
 			type: 'string',
 			default: 'dos'
 		},
+		content: {
+			type: 'string',
+			source: 'html',
+			selector: 'h4',
+			default: __( 'Dos', 'aquila' )
+		}
 	},
 
 	edit: Edit,
 
-	save( { attributes: { option } } ) {
+	save( { attributes: { option, content } } ) {
 
 		const HeadingIcon = getIconComponent( option );
 
@@ -72,7 +78,8 @@ registerBlockType( 'aquila-blocks/heading', {
 		        <span className="aquila-icon-heading__heading">
 		          <HeadingIcon/>
 		        </span>
-				<InnerBlocks.Content/>
+				{/* Saves <h2>Content added in the editor...</h2> to the database for frontend display */}
+				<RichText.Content tagName="h4" value={ content } />
 			</div>
 		);
 	},

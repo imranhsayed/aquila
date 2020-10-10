@@ -1,3 +1,11 @@
+/**
+ *  Get Block Column.
+ *
+ * @param {String} optionVal Option
+ * @param {String} colClassName ClassName
+ * @param {String} heading Heading
+ * @returns {Array} Block column.
+ */
 const getBlockColumn = ( optionVal, colClassName, heading ) => {
 	return [
 		'core/column',

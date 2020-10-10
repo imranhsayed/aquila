@@ -53,18 +53,24 @@ npm install
 npm run dev
 ```
 
+Run precommit from assets directory before pushing the code for development/contribution.
+
+```
+cd assets && npm run precommit
+```
+
 **Production**
 
 ```bash
 npm run prod
 ```
 
-**Linting & Formatting** ( TO BE ADDED )
+**Linting & Formatting**
 
 The following command will fix most errors and show and remaining ones which cannot be fixed automatically.
 
 ```bash
-npm run eslint:fix
+npm run lint:fix
 ```
 
 We follow the stylelint configuration used in WordPress Gutenberg, run the following command to lint and fix styles.
@@ -73,7 +79,7 @@ We follow the stylelint configuration used in WordPress Gutenberg, run the follo
 npm run stylelint:fix
 ```
 
-Format code with prettier
+Format code with prettier ( TO BE ADDED )
 
 ```bash
 npm run format-js

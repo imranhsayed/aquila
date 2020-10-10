@@ -17,7 +17,7 @@ const getBlockColumn = ( optionVal, colClassName, heading ) => {
 			]
 		]
 	];
-}
+};
 
 export const blockColumns = [
 	[

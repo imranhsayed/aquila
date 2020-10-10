@@ -7,7 +7,10 @@ import { blockColumns } from './templates';
 const INNER_BLOCKS_TEMPLATE = [
 	[
 		'core/group',
-		{ className: 'aquila-dos-and-donts__group', backgroundColor: '#000' },
+		{
+			className: 'aquila-dos-and-donts__group',
+			backgroundColor: 'pale-cyan-blue'
+		},
 		blockColumns,
 	],
 ];

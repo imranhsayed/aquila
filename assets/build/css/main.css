@@ -1,1 +1,870 @@
-@font-face{font-family:Lato;font-style:normal;font-weight:300;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.eot);src:local("Lato Light"),local("Lato-Light"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300.svg#Lato) format("svg")}@font-face{font-family:Lato;font-style:italic;font-weight:300;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.eot);src:local("Lato Light Italic"),local("Lato-LightItalic"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.svg#Lato) format("svg")}@font-face{font-family:Lato;font-style:normal;font-weight:400;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.eot);src:local("Lato Regular"),local("Lato-Regular"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.svg#Lato) format("svg")}@font-face{font-family:Lato;font-style:italic;font-weight:400;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.eot);src:local("Lato Italic"),local("Lato-Italic"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.svg#Lato) format("svg")}@font-face{font-family:Lato;font-style:normal;font-weight:700;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.eot);src:local("Lato Bold"),local("Lato-Bold"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700.svg#Lato) format("svg")}@font-face{font-family:Lato;font-style:italic;font-weight:700;src:url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.eot);src:local("Lato Bold Italic"),local("Lato-BoldItalic"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.eot?#iefix) format("embedded-opentype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.woff2) format("woff2"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.woff) format("woff"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.ttf) format("truetype"),url(../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.svg#Lato) format("svg")}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}mark{background:#ccc;color:#000}small{font-size:80%}sup{top:-8px}sub{bottom:-4px}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}fieldset{border:1px solid #ccc;margin:0 2px;padding:6px 10px 12px}legend{border:0;padding:0}optgroup{font-weight:700}figure{margin:0}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;left:-999em;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal}.screen-reader-text:focus{border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto;clip-path:none;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}.left{float:left}.right{float:right}.text-left{text-align:left}.text-right{text-align:right}.text-center{text-align:center}.text-justify{text-align:justify}.hide{display:none}.hidden{visibility:hidden}.visible{visibility:visible}html{box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}*,:after,:before{box-sizing:inherit;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{margin:0;font-family:Lato,sans-serif;font-size:16px;line-height:1.43;background:#fff;color:#414042}@media (min-width:64em){body{font-size:18px;line-height:1.43}}body.mce-content-body{font-family:inherit;margin:15px}blockquote,blockquote.wp-block-quote,q{quotes:"" "";border-left:4px solid #eee;font-style:italic;margin:0 0 30px 30px;padding-left:16px;background:transparent;text-align:left}blockquote.wp-block-quote p,blockquote p,q p{font-size:16px;font-style:normal;font-weight:400}blockquote.wp-block-quote .wp-block-quote__citation,blockquote .wp-block-quote__citation,blockquote.wp-block-quote cite,blockquote cite,q .wp-block-quote__citation,q cite{display:block;font-size:16px;font-weight:700;margin-top:12px;text-transform:uppercase}blockquote.wp-block-quote p:last-of-type,blockquote p:last-of-type,q p:last-of-type{margin-bottom:0}blockquote.is-large,blockquote.is-style-large,blockquote.wp-block-quote.is-large,blockquote.wp-block-quote.is-style-large,q.is-large,q.is-style-large{margin:0 auto}.wp-block-pullquote{border:none;padding:0}.wp-block-pullquote blockquote{border-left:0;border-top:8px solid #eee;border-bottom:8px solid #eee;padding:16px 0;text-align:center;max-width:50%;margin:0 auto}.wp-block-pullquote.alignleft blockquote,.wp-block-pullquote.alignright blockquote,img{max-width:100%}img{height:auto;vertical-align:middle}.wp-block-image.is-resized img,.wp-block-image.size-medium img,.wp-block-image.size-thumbnail img{width:auto}.wp-block-image figcaption{text-align:left;padding:10px 0}figure{max-width:100%}a{cursor:pointer;color:#0192cc;text-decoration:none;transition:.3s}a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}a:hover,a a:active{color:#355180;text-decoration:underline;outline:0}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}h1,h2{font-size:31.5px;line-height:1.27}h3{font-size:24.5px;line-height:1.64}h4{font-size:17.5px;line-height:1.142}h5{font-size:14px;line-height:1.43}h6{font-size:11.9px;line-height:1.681}h1,h2,h3,h4,h5,h6{margin:10px 0;text-rendering:optimizelegibility}ol,ul{margin:0 0 18px}ol.no-bullet,ol.no-bullet ol,ol.no-bullet ul,ul.no-bullet,ul.no-bullet ol,ul.no-bullet ul{margin:0;padding:0;list-style:none}ul{padding:0;margin:0 0 10px 25px}@media (min-width:48em){ul{margin:0 0 5px}}li>ol,li>ul{margin-left:18px}dt{font-weight:700}dd{margin:0 24px 24px}p:empty{display:none}li>ol,li>ul{margin-bottom:0}table{max-width:100%;background-color:transparent;border-collapse:collapse;border-spacing:0}@media (min-width:48em){table{max-width:350px}}.wp-block-button .wp-block-button__link{border-radius:0;font-weight:700;font-size:16px;line-height:18px;padding:20px 24px}.wp-block-button .wp-block-button__link:hover{background:#ccc;text-decoration:none}button,input,select,textarea{font-family:Lato,sans-serif}.uneditable-input,input[type=color],input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],select,textarea{display:inline-block;height:20px;width:206px;padding:14px 6px;margin:0 0 10px;line-height:1.43;color:#555;vertical-align:middle;border-radius:4px;background-color:#fff;border:1px solid #ccc;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);transition:border .2s linear,box-shadow .2s linear}textarea{height:auto;padding:4px 6px;max-width:100%;outline:none;overflow:auto}select{box-shadow:none;transition:none;width:220px;padding:0 6px}input[type=file],select{height:30px;line-height:2.15}button{margin:0}label{display:block;margin-bottom:5px}button,input,label,select,textarea{font-size:16px;line-height:1.43;font-weight:400}@media (min-width:64em){button,input,label,select,textarea{font-size:18px;line-height:1.43}}button,input[type=button],input[type=checkbox],input[type=radio],input[type=reset],input[type=submit],label,select{cursor:pointer}input[type=search]{-webkit-appearance:textfield}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:1.54;word-break:break-all;word-wrap:break-word;white-space:pre-wrap;background-color:#e2eaee;border:1px solid rgba(0,0,0,.15);border-radius:4px}code,pre{font-family:Lato,sans-serif,monospace}code{padding:2px 4px;color:#d14;white-space:nowrap;background-color:#f7f7f9;border:1px solid #e1e1e8;font-size:12px;border-radius:3px}.wp-block-separator,hr{width:100%;margin:20px 0;border:0;border-top:1px solid #eee;border-bottom:1px solid #fff;box-sizing:content-box}.wp-block-separator:not(.is-style-dots),hr:not(.is-style-dots){background-color:#eff3f6;border:0;height:1px}.wp-block-separator:not(.is-style-wide):not(.is-style-dots),hr:not(.is-style-wide):not(.is-style-dots){width:100%;height:4px;background:transparent}.wp-block-separator:not(.is-style-wide):not(.is-style-dots):before,hr:not(.is-style-wide):not(.is-style-dots):before{content:"";display:block;height:4px;width:40px;background:#eff3f6}.wp-block-separator.is-style-dots:before,hr.is-style-dots:before{color:#eff3f6;font-size:18px;letter-spacing:12px;padding-left:12px}.comment-content .wp-smiley,.entry-content .wp-smiley,.page-content .wp-smiley{border:none;margin-bottom:0;margin-top:0;padding:0}embed,iframe,object{max-width:100%}.site-content{word-wrap:break-word}.home-page-wrap .entry-content>*{margin:60px auto}.home-page-wrap .entry-content>:not(.alignfull){max-width:1140px;padding:0 15px}.home-page-wrap .entry-content>.alignwide{max-width:1240px}.updated:not(.published){display:none}.page-numbers.current>span{background-color:grey;color:#fff}.nav-item:hover .dropdown-menu:not(.show){display:block}
+/* lato-300 - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 300;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.eot); /* IE9 Compat Modes */
+	src: local('Lato Light'), local('Lato-Light'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300.svg#Lato) format('svg'); /* Legacy iOS */
+}
+/* lato-300italic - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 300;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.eot); /* IE9 Compat Modes */
+	src: local('Lato Light Italic'), local('Lato-LightItalic'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-300italic.svg#Lato) format('svg'); /* Legacy iOS */
+}
+/* lato-regular - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.eot); /* IE9 Compat Modes */
+	src: local('Lato Regular'), local('Lato-Regular'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-regular.svg#Lato) format('svg'); /* Legacy iOS */
+}
+/* lato-italic - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 400;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.eot); /* IE9 Compat Modes */
+	src: local('Lato Italic'), local('Lato-Italic'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-italic.svg#Lato) format('svg'); /* Legacy iOS */
+}
+/* lato-700 - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 700;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.eot); /* IE9 Compat Modes */
+	src: local('Lato Bold'), local('Lato-Bold'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700.svg#Lato) format('svg'); /* Legacy iOS */
+}
+/* lato-700italic - latin */
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 700;
+	src: url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.eot); /* IE9 Compat Modes */
+	src: local('Lato Bold Italic'), local('Lato-BoldItalic'),
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.eot?#iefix) format('embedded-opentype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.woff2) format('woff2'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.woff) format('woff'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.ttf) format('truetype'), 
+	url(../../src/library/fonts/lato-v16-latin/lato-v16-latin-700italic.svg#Lato) format('svg'); /* Legacy iOS */
+}
+
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+/*---------------------------------
+		Colors Variables
+-----------------------------------*/
+/*---------------------------------
+		Opacity
+-----------------------------------*/
+/*---------------------------------
+		Gradient
+-----------------------------------*/
+/*---------------------------------
+		Element Colors
+-----------------------------------*/
+/*---------------------------------
+		Border Colors
+-----------------------------------*/
+/*----------------
+		Font
+------------------*/
+/*---------------------------------
+		Body Text Font Sizes
+-----------------------------------*/
+/**
+ * Add font scale with media query as per configuration on $body-text
+ * Ex: @include body-text( h1 );
+ * This will add font-size and line-height with different breakpoints.
+ */
+/* normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: 700; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #cccccc;
+  color: #000000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -8px; }
+
+sub {
+  bottom: -4px; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */ }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #cccccc;
+  margin: 0 2px;
+  padding: 6px 10px 12px; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: 700; }
+
+/* Note: This file is updated by Sagar, To remove ducplication of styles. */
+figure {
+  margin: 0;
+  max-width: 100%; }
+
+/*---------------------------
+		Accessiblity
+---------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  left: -999em;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal; }
+  .screen-reader-text:focus {
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto;
+    clip-path: none;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/*---------------------------
+		Alignments
+---------------------------*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-justify {
+  text-align: justify; }
+
+/*---------------------------
+		Others
+---------------------------*/
+.hide {
+  display: none; }
+
+.hidden {
+  visibility: hidden; }
+
+.visible {
+  visibility: visible; }
+
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+/* stylelint-enable */
+/**
+ * 1. Fallback for when there is no custom background color defined. [WordPress]
+ * 2. Remove default margin. [normalize.css]
+ * 3. Set the base elements `font-size` to the value of your choosing.
+ * 4. Work out the unitless `line-height` for your project based around your
+ *    desired `line-height` (defined previously in pixels), and your projects
+ *    base font size.
+ */
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 1.43;
+  background: #ffffff;
+  color: #414042; }
+  @media (min-width: 64em) {
+    body {
+      font-size: 18px;
+      line-height: 1.43; } }
+  body.mce-content-body {
+    font-family: inherit;
+    margin: 15px; }
+
+blockquote,
+q,
+blockquote.wp-block-quote {
+  quotes: "" "";
+  border-left: 4px solid #eeeeee;
+  font-style: italic;
+  margin: 0 0 30px 30px;
+  padding-left: 16px;
+  background: transparent;
+  text-align: left; }
+  blockquote p,
+  q p,
+  blockquote.wp-block-quote p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400; }
+  blockquote cite,
+  blockquote .wp-block-quote__citation,
+  q cite,
+  q .wp-block-quote__citation,
+  blockquote.wp-block-quote cite,
+  blockquote.wp-block-quote .wp-block-quote__citation {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-transform: uppercase; }
+  blockquote p:last-of-type,
+  q p:last-of-type,
+  blockquote.wp-block-quote p:last-of-type {
+    margin-bottom: 0; }
+  blockquote.is-large, blockquote.is-style-large,
+  q.is-large,
+  q.is-style-large,
+  blockquote.wp-block-quote.is-large,
+  blockquote.wp-block-quote.is-style-large {
+    margin: 0 auto; }
+
+/* Pull Quote
+--------------------------------------------- */
+.wp-block-pullquote {
+  border: none;
+  padding: 0; }
+  .wp-block-pullquote blockquote {
+    border-left: 0;
+    border-top: 8px solid #eeeeee;
+    border-bottom: 8px solid #eeeeee;
+    padding: 16px 0;
+    text-align: center;
+    max-width: 50%;
+    margin: 0 auto; }
+  .wp-block-pullquote.alignleft blockquote, .wp-block-pullquote.alignright blockquote {
+    max-width: 100%; }
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle; }
+
+/* Image Support
+--------------------------------------------- */
+.wp-block-image.size-medium img, .wp-block-image.size-thumbnail img, .wp-block-image.is-resized img {
+  width: auto; }
+
+.wp-block-image figcaption {
+  text-align: left;
+  padding: 10px 0; }
+
+figure {
+  max-width: 100%; }
+
+a {
+  cursor: pointer;
+  color: #0192cc;
+  text-decoration: none;
+  transition: 0.3s; }
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
+  a:hover,
+  a a:active {
+    color: #355180;
+    text-decoration: underline;
+    outline: 0; }
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+h1 {
+  font-size: 31.5px;
+  line-height: 1.27; }
+
+h2 {
+  font-size: 31.5px;
+  line-height: 1.27; }
+
+h3 {
+  font-size: 24.5px;
+  line-height: 1.64; }
+
+h4 {
+  font-size: 17.5px;
+  line-height: 1.142; }
+
+h5 {
+  font-size: 14px;
+  line-height: 1.43; }
+
+h6 {
+  font-size: 11.9px;
+  line-height: 1.681; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  text-rendering: optimizelegibility; }
+
+/*---------------------------
+		Lists
+---------------------------*/
+ul,
+ol {
+  margin: 0 0 18px 0; }
+  ul.no-bullet,
+  ul.no-bullet ul,
+  ul.no-bullet ol,
+  ol.no-bullet,
+  ol.no-bullet ul,
+  ol.no-bullet ol {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+
+ul {
+  padding: 0;
+  margin: 0 0 10px 25px; }
+  @media (min-width: 48em) {
+    ul {
+      margin: 0 0 5px 0; } }
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 18px; }
+
+dt {
+  font-weight: 700; }
+
+dd {
+  margin: 0 24px 24px; }
+
+p:empty {
+  display: none; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  @media (min-width: 48em) {
+    table {
+      max-width: 350px; } }
+
+/* Button
+--------------------------------------------- */
+.wp-block-button .wp-block-button__link {
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 20px 24px; }
+  .wp-block-button .wp-block-button__link:hover {
+    background: #cccccc;
+    text-decoration: none; }
+
+/*------------------------------------*\
+    Form Fields
+\*------------------------------------*/
+input, button, select, textarea {
+  font-family: "Lato", sans-serif; }
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 20px;
+  width: 206px;
+  padding: 14px 6px;
+  /* adjusting border-box difference on live site */
+  margin: 0 0 10px;
+  line-height: 1.43;
+  color: #555555;
+  vertical-align: middle;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s; }
+
+textarea {
+  height: auto;
+  padding: 4px 6px;
+  max-width: 100%;
+  outline: none;
+  overflow: auto; }
+
+select {
+  box-shadow: none;
+  transition: none;
+  width: 220px;
+  padding: 0px 6px; }
+
+select, input[type="file"] {
+  height: 30px;
+  line-height: 2.15; }
+
+button {
+  margin: 0; }
+
+label {
+  display: block;
+  margin-bottom: 5px; }
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 16px;
+  line-height: 1.43;
+  font-weight: 400; }
+  @media (min-width: 64em) {
+    label,
+    input,
+    button,
+    select,
+    textarea {
+      font-size: 18px;
+      line-height: 1.43; } }
+
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer; }
+
+input[type="search"] {
+  -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+/*------------------------------------*\
+    #OTHER
+\*------------------------------------*/
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.54;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  background-color: #E2EAEE;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: "Lato", sans-serif, monospace; }
+
+code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  font-family: "Lato", sans-serif, monospace;
+  font-size: 12px;
+  border-radius: 3px; }
+
+/* Separator
+--------------------------------------------- */
+.wp-block-separator,
+hr {
+  width: 100%;
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+  box-sizing: content-box; }
+  .wp-block-separator:not(.is-style-dots),
+  hr:not(.is-style-dots) {
+    background-color: #eff3f6;
+    border: 0;
+    height: 1px; }
+  .wp-block-separator:not(.is-style-wide):not(.is-style-dots),
+  hr:not(.is-style-wide):not(.is-style-dots) {
+    width: 100%;
+    height: 4px;
+    background: transparent; }
+    .wp-block-separator:not(.is-style-wide):not(.is-style-dots)::before,
+    hr:not(.is-style-wide):not(.is-style-dots)::before {
+      content: '';
+      display: block;
+      height: 4px;
+      width: 40px;
+      background: #eff3f6; }
+  .wp-block-separator.is-style-dots:before,
+  hr.is-style-dots:before {
+    color: #eff3f6;
+    font-size: 18px;
+    letter-spacing: 12px;
+    padding-left: 12px; }
+
+/*-----------
+	Media
+-------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%; }
+
+.site-content {
+  word-wrap: break-word; }
+
+/*---------------------------
+      Icons
+---------------------------*/
+.home-page-wrap .entry-content > * {
+  margin: 60px auto 60px auto; }
+
+.home-page-wrap .entry-content > *:not(.alignfull) {
+  max-width: 1140px;
+  padding: 0 15px 0 15px; }
+
+.home-page-wrap .entry-content > .alignwide {
+  max-width: 1240px; }
+
+/* Entry meta */
+.updated:not(.published) {
+  display: none; }
+
+/* Pagination */
+.page-numbers.current > span {
+  background-color: gray;
+  color: #fff; }
+
+/* Nav item */
+.nav-item:hover .dropdown-menu:not(.show) {
+  display: block; }
+
+
+/*# sourceMappingURL=main.css.map*/

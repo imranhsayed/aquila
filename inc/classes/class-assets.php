@@ -25,7 +25,7 @@ class Assets {
 		 */
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
+		add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_assets' ] );
 	}
 
 	public function register_styles() {
@@ -49,7 +49,7 @@ class Assets {
 	}
 
 	/**
-	 * Enqueue editor scripts.
+	 * Enqueue editor scripts and styles.
 	 */
 	public function enqueue_editor_assets() {
 
@@ -70,12 +70,28 @@ class Assets {
 		$version         = ( ! empty( $editor_asset['version'] ) ) ? $editor_asset['version'] : filemtime( $asset_config_file );
 
 		// Theme Gutenberg blocks JS.
-		wp_enqueue_script(
-			'editor-js',
-			AQUILA_BUILD_JS_URI . '/editor.js',
-			$js_dependencies,
-			$version,
-			true
+		if ( is_admin() ) {
+			wp_enqueue_script(
+				'aquila-blocks-js',
+				AQUILA_BUILD_JS_URI . '/blocks.js',
+				$js_dependencies,
+				$version,
+				true
+			);
+		}
+
+		// Theme Gutenberg blocks CSS.
+		$css_dependencies = [
+			'wp-block-library-theme',
+			'wp-block-library',
+		];
+
+		wp_enqueue_style(
+			'aquila-blocks-css',
+			AQUILA_BUILD_CSS_URI . '/blocks.css',
+			$css_dependencies,
+			filemtime( AQUILA_BUILD_CSS_DIR_PATH . '/blocks.css' ),
+			'all'
 		);
 
 	}

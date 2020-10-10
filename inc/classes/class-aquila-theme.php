@@ -158,6 +158,8 @@ class AQUILA_THEME {
 		 *
 		 * Editor Styles allow you to provide the CSS used by WordPress’ Visual Editor so that it can match the frontend styling.
 		 * If we don't add this, the editor styles will only load in the classic editor ( tiny mice )
+		 *
+		 * @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
 		 */
 		add_theme_support( 'editor-styles' );
 		/**

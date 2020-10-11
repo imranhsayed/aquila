@@ -9,7 +9,7 @@ const INNER_BLOCKS_TEMPLATE = [
 		'core/group',
 		{
 			className: 'aquila-dos-and-donts__group',
-			backgroundColor: 'pale-cyan-blue'
+			backgroundColor: 'pale-cyan-blue',
 		},
 		blockColumns,
 	],
@@ -17,8 +17,12 @@ const INNER_BLOCKS_TEMPLATE = [
 
 const ALLOWED_BLOCKS = [ 'core/group' ];
 
+/**
+ * Edit function.
+ *
+ * @return {Object} Content.
+ */
 const Edit = () => {
-
 	return (
 		<div className="aquila-dos-and-donts">
 			<InnerBlocks

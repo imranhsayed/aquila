@@ -1,0 +1,27 @@
+{
+  "extends": "stylelint-config-wordpress/scss",
+  "ignoreFiles": "",
+  "rules": {
+	"at-rule-empty-line-before": null,
+	"block-no-empty": true,
+	"color-hex-case": "lower",
+	"color-no-invalid-hex": true,
+	"comment-no-empty": true,
+	"declaration-block-no-shorthand-property-overrides": true,
+	"declaration-colon-space-before": "never",
+	"declaration-no-important": true,
+	"font-family-name-quotes": "always-where-recommended",
+	"font-weight-notation": "numeric",
+	"function-url-quotes": "always",
+	"indentation": "tab",
+	"max-empty-lines": 1,
+	"no-missing-end-of-source-newline": true,
+	"number-leading-zero": "always",
+	"rule-empty-line-before": null,
+	"selector-combinator-space-after": "always",
+	"selector-list-comma-newline-after": null,
+	"selector-max-specificity": "0,3,1",
+	"selector-pseudo-element-colon-notation": "double",
+	"unit-no-unknown": true
+  }
+}

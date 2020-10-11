@@ -27,7 +27,6 @@ html {
  */
 body {
 	margin: 0;
-
 	@include font-family();
 	@include body-text( body );
 
@@ -59,6 +58,7 @@ blockquote.wp-block-quote {
 		font-weight: 400;
 	}
 
+	/* stylelint-disable */
 	cite,
 	.wp-block-quote__citation {
 		display: block;
@@ -67,6 +67,7 @@ blockquote.wp-block-quote {
 		margin-top: 12px;
 		text-transform: uppercase;
 	}
+	/* stylelint-enable */
 
 	p:last-of-type {
 		margin-bottom: 0;
@@ -106,13 +107,11 @@ blockquote.wp-block-quote {
 	}
 }
 
-
 img {
 	height: auto;
 	max-width: 100%;
 	vertical-align: middle;
 }
-
 
 /* Image Support
 --------------------------------------------- */
@@ -130,7 +129,6 @@ img {
 		padding: 10px 0;
 	}
 }
-
 
 figure {
 	max-width: 100%;
@@ -174,7 +172,7 @@ sub {
 /*------------------------------------*\
     #HEADINGS
 \*------------------------------------*/
-
+/* stylelint-disable */
 h1 {
 	@include body-text( h1 )
 }
@@ -199,7 +197,12 @@ h6 {
 	@include body-text( h6 )
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 10px 0;
 	text-rendering: optimizelegibility;
 }
@@ -291,12 +294,16 @@ table {
 
 	}
 }
+/* stylelint-enable */
 
 /*------------------------------------*\
     Form Fields
 \*------------------------------------*/
 
-input, button, select, textarea {
+input,
+button,
+select,
+textarea {
 	font-family: $font__main;
 }
 
@@ -344,10 +351,11 @@ select {
 	box-shadow: none;
 	transition: none;
 	width: 220px;
-	padding: 0px 6px;
+	padding: 0 6px;
 }
 
-select, input[type="file"] {
+select,
+input[type="file"] {
 	height: 30px;
 	line-height: 2.15;
 }
@@ -445,7 +453,7 @@ hr {
 		background: transparent;
 
 		&::before {
-			content: '';
+			content: "";
 			display: block;
 			height: 4px;
 			width: 40px;
@@ -453,11 +461,10 @@ hr {
 		}
 	}
 
-	&.is-style-dots:before {
+	&.is-style-dots::before {
 		color: $gray-100;
 		font-size: 18px;
 		letter-spacing: 12px;
 		padding-left: 12px;
 	}
 }
-

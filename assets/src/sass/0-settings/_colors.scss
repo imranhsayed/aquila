@@ -8,7 +8,7 @@
 		Colors Variables
 -----------------------------------*/
 
-$black: #000000;
+$black: #000;
 $black-900: #3d3d3d;
 $black-860: #595858;
 $black-850: #323232;
@@ -18,16 +18,16 @@ $black-700: #595959;
 $black-100: #282828;
 $black-50: #5d5d5d;
 
-$white: #ffffff;
+$white: #fff;
 
 $dark-gray-200: #333;
 $dark-gray-100: #424242;
 
 $gray-100: #eff3f6;
-$gray-150: #eeeeee;
-$gray-160: #E2EAEE;
-$gray-200: #cccccc;
-$gray-300: #555555;
+$gray-150: #eee;
+$gray-160: #e2eaee;
+$gray-200: #ccc;
+$gray-300: #555;
 
 $blue-900: #3344d9;
 $blue-800: #322ebb;
@@ -54,8 +54,8 @@ $opacity-black-015: rgba(0, 0, 0, 0.15);
 		Gradient
 -----------------------------------*/
 
-$header-gradient: linear-gradient( to bottom, $black-900 0%, $black-100 100% );
-$link-hover-gradient: linear-gradient( to bottom, $blue-100 0%, $blue-200 100% );
+$header-gradient: linear-gradient(to bottom, $black-900 0%, $black-100 100%);
+$link-hover-gradient: linear-gradient(to bottom, $blue-100 0%, $blue-200 100%);
 
 /*---------------------------------
 		Element Colors
@@ -93,4 +93,3 @@ $color__border-light: $gray-100;
 $color__border-fieldset: $gray-200;
 $color__border-table: $gray-200;
 $color__border-header: $gray-300;
-

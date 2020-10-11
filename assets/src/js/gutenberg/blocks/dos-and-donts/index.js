@@ -1,7 +1,7 @@
 /**
  * Do's and don'ts block.
  *
- * @package Aquila
+ * @package
  */
 
 /**
@@ -25,7 +25,7 @@ registerBlockType( 'aquila-blocks/dos-and-donts', {
 	 *
 	 * @type {string}
 	 */
-	title: __( 'Dos and dont\'s', 'aquila' ),
+	title: __( "Dos and dont's", 'aquila' ),
 
 	/**
 	 * Block icon.
@@ -50,10 +50,15 @@ registerBlockType( 'aquila-blocks/dos-and-donts', {
 
 	edit: Edit,
 
+	/**
+	 * Save
+	 *
+	 * @return {Object} Save content.
+	 */
 	save() {
 		return (
 			<div className="aquila-dos-and-donts">
-				<InnerBlocks.Content/>
+				<InnerBlocks.Content />
 			</div>
 		);
 	},

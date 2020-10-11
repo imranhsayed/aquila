@@ -1,4 +1,4 @@
-/// Center block
+// Center block
 @mixin center-block {
 	display: block;
 	margin-left: auto;
@@ -20,32 +20,32 @@
  * This will add font-size and line-height with different breakpoints.
  */
 @mixin body-text( $level: normal, $body-text: $body-text, $device-size: false ) {
-	@if type-of($body-text) != 'map' {
+	@if type-of($body-text) != "map" {
 		@error "`#{$body-text}` is not a valid value for $values. It must be a list.";
 	}
 
 	$size: map_get($body-text, $level);
 
-	@if type-of($size) == 'map' {
+	@if type-of($size) == "map" {
 
 		@if $device-size == false {
 			@each $device, $values in $size {
 
-				@if $device != 'small' {
+				@if $device != "small" {
 					@include mq($from: $device) {
-						font-size: map_get($values, 'font-size');
-						line-height: map_get($values, 'line-height');
+						font-size: map_get($values, "font-size");
+						line-height: map_get($values, "line-height");
 					}
 				} @else {
-					font-size: map_get($values, 'font-size');
-					line-height: map_get($values, 'line-height');
+					font-size: map_get($values, "font-size");
+					line-height: map_get($values, "line-height");
 				}
 			}
 		} @else {
 			$device_values: map_get($size, $device-size);
 
-			font-size: map_get($device_values, 'font-size');
-			line-height: map_get($device_values, 'line-height');
+			font-size: map_get($device_values, "font-size");
+			line-height: map_get($device_values, "line-height");
 		}
 	}
 }

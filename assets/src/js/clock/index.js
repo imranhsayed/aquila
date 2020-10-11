@@ -1,31 +1,55 @@
 ( function ( $ ) {
+	/**
+	 * Clock Class.
+	 */
 	class Clock {
+		/**
+		 * Constructor
+		 */
 		constructor() {
 			this.initializeClock();
 		}
 
+		/**
+		 * initializeClock
+		 */
 		initializeClock() {
-			let t = setInterval( () => this.time(), 1000 );
+			setInterval( () => this.time(), 1000 );
 		}
 
+		/**
+		 * Numpad
+		 *
+		 * @param {String} str String
+		 *
+		 * @return {string} String
+		 */
 		numPad( str ) {
-			let cStr = str.toString();
+			const cStr = str.toString();
 			if ( 2 > cStr.length ) {
 				str = 0 + cStr;
 			}
 			return str;
 		}
 
+		/**
+		 * Time
+		 */
 		time() {
-			let currDate = new Date();
-			let currSec  = currDate.getSeconds();
-			let currMin  = currDate.getMinutes();
-			let curr24Hr = currDate.getHours();
-			let ampm     = 12 <= curr24Hr ? 'pm' : 'am';
-			let currHr   = curr24Hr % 12;
-			currHr       = currHr ? currHr : 12;
+			const currDate = new Date();
+			const currSec = currDate.getSeconds();
+			const currMin = currDate.getMinutes();
+			const curr24Hr = currDate.getHours();
+			const ampm = 12 <= curr24Hr ? 'pm' : 'am';
+			let currHr = curr24Hr % 12;
+			currHr = currHr ? currHr : 12;
 
-			let stringTime = currHr + ':' + this.numPad( currMin ) + ':' + this.numPad( currSec );
+			const stringTime =
+				currHr +
+				':' +
+				this.numPad( currMin ) +
+				':' +
+				this.numPad( currSec );
 			const timeEmojiEl = $( '#time-emoji' );
 
 			if ( 5 <= curr24Hr && 17 >= curr24Hr ) {
@@ -40,5 +64,4 @@
 	}
 
 	new Clock();
-
-} ( jQuery ) );
+} )( jQuery );

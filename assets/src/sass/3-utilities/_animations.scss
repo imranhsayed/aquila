@@ -4,6 +4,7 @@
 	animation-timing-function: ease-out;
 }
 
+/* stylelint-disable */
 @keyframes fadeInLeft {
 	0% {
 		opacity: 0;
@@ -60,3 +61,5 @@
 		opacity: 1;
 	}
 }
+
+/* stylelint-enable */

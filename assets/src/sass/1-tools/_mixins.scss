@@ -1,4 +1,4 @@
-/// Center block
+// Center block
 @mixin center-block {
 	display: block;
 	margin-left: auto;
@@ -36,14 +36,12 @@
 						font-size: map_get($values, "font-size");
 						line-height: map_get($values, "line-height");
 					}
-				}
-				@else {
+				} @else {
 					font-size: map_get($values, "font-size");
 					line-height: map_get($values, "line-height");
 				}
 			}
-		}
-		@else {
+		} @else {
 			$device_values: map_get($size, $device-size);
 
 			font-size: map_get($device_values, "font-size");

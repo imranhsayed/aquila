@@ -27,7 +27,6 @@ html {
  */
 body {
 	margin: 0;
-
 	@include font-family();
 	@include body-text( body );
 
@@ -59,6 +58,7 @@ blockquote.wp-block-quote {
 		font-weight: 400;
 	}
 
+	/* stylelint-disable */
 	cite,
 	.wp-block-quote__citation {
 		display: block;
@@ -67,6 +67,7 @@ blockquote.wp-block-quote {
 		margin-top: 12px;
 		text-transform: uppercase;
 	}
+	/* stylelint-enable */
 
 	p:last-of-type {
 		margin-bottom: 0;
@@ -196,8 +197,6 @@ h6 {
 	@include body-text( h6 )
 }
 
-/* stylelint-enable */
-
 h1,
 h2,
 h3,
@@ -295,6 +294,7 @@ table {
 
 	}
 }
+/* stylelint-enable */
 
 /*------------------------------------*\
     Form Fields

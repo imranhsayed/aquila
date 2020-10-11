@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-wordpress",
+  "extends": "stylelint-config-wordpress/scss",
   "ignoreFiles": "",
   "rules": {
 	"at-rule-empty-line-before": null,
@@ -17,14 +17,11 @@
 	"max-empty-lines": 1,
 	"no-missing-end-of-source-newline": true,
 	"number-leading-zero": "always",
-	"property-case": "lower",
 	"rule-empty-line-before": null,
 	"selector-combinator-space-after": "always",
 	"selector-list-comma-newline-after": null,
 	"selector-max-specificity": "0,3,1",
-	"selector-pseudo-element-case": "lower",
 	"selector-pseudo-element-colon-notation": "double",
-	"unit-case": "lower",
 	"unit-no-unknown": true
   }
 }

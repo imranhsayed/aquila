@@ -25,6 +25,10 @@ class Assets {
 		 */
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+		/**
+		 * The 'enqueue_block_assets' hook includes styles and scripts both in editor and frontend,
+		 * except when is_admin() is used to include them conditionally
+		 */
 		add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_assets' ] );
 	}
 

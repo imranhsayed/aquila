@@ -9,6 +9,7 @@ const cssnano = require( 'cssnano' ); // https://cssnano.co/
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 const CopyPlugin = require('copy-webpack-plugin'); // https://webpack.js.org/plugins/copy-webpack-plugin/
+const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 
 // JS Directory path.
 const JS_DIR = path.resolve( __dirname, 'src/js' );
@@ -20,6 +21,7 @@ const entry = {
 	main: JS_DIR + '/main.js',
 	single: JS_DIR + '/single.js',
 	editor: JS_DIR + '/editor.js',
+	blocks: JS_DIR + '/blocks.js',
 };
 
 const output = {
@@ -44,6 +46,11 @@ const plugins = ( argv ) => [
 			{ from: LIB_DIR, to: BUILD_DIR + '/library' }
 		]
 	} ),
+
+	new DependencyExtractionWebpackPlugin( {
+		injectPolyfill: true,
+		combineAssets: true,
+	} )
 ];
 
 const rules = [

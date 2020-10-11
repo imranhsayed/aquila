@@ -1,6 +1,10 @@
 {
-  "extends": "wordpress",
-  "parser": "babel-eslint",
+  "extends": [
+	"plugin:@wordpress/eslint-plugin/recommended"
+  ],
+  "plugins": [
+	"jsdoc"
+  ],
   "parserOptions": {
 	"ecmaVersion": 6,
 	"ecmaFeatures": {
@@ -12,6 +16,11 @@
 	  "modules": true
 	},
 	"sourceType": "module"
+  },
+  "globals": {
+	"wp": false,
+	"hm": false,
+	"_": false
   },
   "env": {
 	"es6": true,
@@ -35,9 +44,49 @@
 	"space-before-function-paren": 0,
 	"no-tabs": 0,
 	"prefer-destructuring": 0,
-	"no-undef": 0,
 	"no-param-reassign": 0,
-	"comma-dangle": 0,
-	"lines-around-comment": 0
+	"curly": "error",
+	"no-empty-function": "error",
+	"no-global-assign": "error",
+	"yoda": [ "error", "always" ],
+	"no-undefined":"error",
+	"comma-spacing": ["error", { "before": false, "after": true }],
+	"lines-between-class-members": ["error", "always"],
+	"arrow-spacing": "error",
+	"jsdoc/check-alignment": 1,
+	"jsdoc/check-param-names": 1,
+	"jsdoc/check-tag-names": 1,
+	"jsdoc/check-types": 0,
+	"jsdoc/implements-on-classes": 1,
+	"jsdoc/newline-after-description": 1,
+	"jsdoc/no-undefined-types": 0,
+	"jsdoc/require-jsdoc": 1,
+	"jsdoc/require-param": 1,
+	"jsdoc/require-param-description": 1,
+	"jsdoc/require-param-name": 1,
+	"jsdoc/require-param-type": 1,
+	"jsdoc/require-returns": 1,
+	"jsdoc/require-returns-check": 1,
+	"jsdoc/require-returns-description": 1,
+	"jsdoc/require-returns-type": 1,
+	"jsdoc/valid-types": 1,
+	"no-mixed-spaces-and-tabs": "off",
+	"require-jsdoc": ["error", {
+	  "require": {
+		"FunctionDeclaration": true,
+		"MethodDefinition": true,
+		"ClassDeclaration": true,
+		"ArrowFunctionExpression": true,
+		"FunctionExpression": true
+	  }
+	}]
+  },
+  "settings": {
+	"jsdoc": {
+	  "tagNamePreference" : {
+		"param": "param",
+		"returns": "return"
+	  }
+	}
   }
 }

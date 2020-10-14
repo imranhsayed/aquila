@@ -20,6 +20,7 @@ class AQUILA_THEME {
 		Meta_Boxes::get_instance();
 		Sidebars::get_instance();
 		Blocks::get_instance();
+		Block_Category::get_instance();
 		Block_Patterns::get_instance();
 
 		$this->setup_hooks();

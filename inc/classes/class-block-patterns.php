@@ -59,6 +59,21 @@ class Block_Patterns {
 					'content' => $two_columns_content,
 				]
 			);
+
+			/**
+             * Flickr Image Pattern
+             */
+            $flickr_image_pattern = $this->get_pattern_content( 'template-parts/patterns/flickr-image' );
+
+            register_block_pattern(
+                'aquila/flickr-image',
+                [
+                    'title' => __( 'Aquila Flickr Image', 'aquila' ),
+                    'description' => __( 'Aquila flickr image', 'aquila' ),
+                    'categories' => [ 'flickr_image' ],
+                    'content' => $flickr_image_pattern,
+                ]
+            );
 		}
 	}
 
@@ -80,6 +95,7 @@ class Block_Patterns {
 		$pattern_categories = [
 			'cover' => __( 'Cover', 'aquila' ),
 			'columns' => __( 'Columns', 'aquila' ),
+			'flickr_image' => __( 'Flickr Image', 'aquila' ),
 		];
 
 		if ( ! empty( $pattern_categories ) && is_array( $pattern_categories ) ) {

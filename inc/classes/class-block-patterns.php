@@ -70,7 +70,7 @@ class Block_Patterns {
                 [
                     'title' => __( 'Aquila Flickr Image', 'aquila' ),
                     'description' => __( 'Aquila flickr image', 'aquila' ),
-                    'categories' => [ 'flickr_image' ],
+                    'categories' => [ 'aquila_image' ],
                     'content' => $flickr_image_pattern,
                 ]
             );
@@ -95,7 +95,7 @@ class Block_Patterns {
 		$pattern_categories = [
 			'cover' => __( 'Cover', 'aquila' ),
 			'columns' => __( 'Columns', 'aquila' ),
-			'flickr_image' => __( 'Flickr Image', 'aquila' ),
+			'aquila_image' => __( 'Aquila Image', 'aquila' ),
 		];
 
 		if ( ! empty( $pattern_categories ) && is_array( $pattern_categories ) ) {

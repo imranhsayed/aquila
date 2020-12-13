@@ -137,3 +137,12 @@ Directory Structure
     └── header
         └── nav.php
 ```
+
+### Fixing Errors
+
+1. Error: Node Sass does not yet support your current environment
+Solution : 
+```shell
+cd assets
+npm rebuild node-sass
+```

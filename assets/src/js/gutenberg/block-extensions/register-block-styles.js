@@ -1,7 +1,7 @@
 /**
  * Register block styles.
  *
- * @package
+ * @package aquila
  */
 
 /**
@@ -11,7 +11,7 @@ import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
 /**
- * Cover Media styles.
+ * Quote Block styles.
  *
  * @type {Array}
  */

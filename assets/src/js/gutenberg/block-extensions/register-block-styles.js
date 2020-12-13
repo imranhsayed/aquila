@@ -1,7 +1,7 @@
 /**
  * Register block styles.
  *
- * @package aquila
+ * @package
  */
 
 /**

@@ -18,6 +18,9 @@ This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQC
 
 - Custom front page.
 - Custom Blog page with posts displayed in grid format using bootstrap.
+- Block Style Variations
+- Custom Gutenberg Blocks
+- InnerBlocks
 
 ## Maintainer
 
@@ -136,4 +139,13 @@ Directory Structure
     ├── content.php
     └── header
         └── nav.php
+```
+
+### Fixing Errors
+
+1. Error: Node Sass does not yet support your current environment
+Solution : 
+```shell
+cd assets
+npm rebuild node-sass
 ```

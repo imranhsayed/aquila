@@ -1,0 +1,9 @@
+/* stylelint-disable */
+.editor-styles-wrapper .wp-block-quote,
+.wp-block-quote {
+	&.is-style-layout-dark-background {
+		background-color: $blue-40;
+	}
+}
+
+/* stylelint-enable */

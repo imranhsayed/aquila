@@ -18,6 +18,9 @@ This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQC
 
 - Custom front page.
 - Custom Blog page with posts displayed in grid format using bootstrap.
+- Block Style Variations
+- Custom Gutenberg Blocks
+- InnerBlocks
 
 ## Maintainer
 

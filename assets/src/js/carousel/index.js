@@ -1,16 +1,43 @@
-(function( $ ){
+( function( $ ) {
   class SlickCarousel {
-    init() {
-      this.initialCarousel();
+    constructor() {
+      this.initiateCarousel();
     }
 
-    initialCarousel() {
-      $('.your-class').slick();
+    initiateCarousel() {
+      $( '.posts-carousel' ).slick( {
+        autoplay: true,
+        autoplaySpeed: 1000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          } ],
+      } );
     }
   }
 
   new SlickCarousel();
 
-  $('.your-class').slick();
-  console.log( 'came', $ );
-})(jQuery)
+} )( jQuery );

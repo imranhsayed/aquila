@@ -108,7 +108,7 @@ function aquila_posted_by() {
  * @return bool|string
  */
 function aquila_the_excerpt( $trim_character_count = 0 ) {
-	if ( ! has_excerpt() || 0 === $trim_character_count ) {
+	if ( has_excerpt() || 0 === $trim_character_count ) {
 		the_excerpt();
 		return;
 	}

@@ -113,11 +113,10 @@ function aquila_the_excerpt( $trim_character_count = 0 ) {
 		return;
 	}
 
-	$excerpt = wp_strip_all_tags( get_the_excerpt() );
-	$excerpt = substr( $excerpt, 0, $trim_character_count );
-	$excerpt = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
+        $excerpt = wp_html_excerpt( get_the_excerpt( $post_ID ), $trim_character_count, '[...]' );
 
-	echo $excerpt . '[...]';
+
+	echo $excerpt;
 }
 
 /**

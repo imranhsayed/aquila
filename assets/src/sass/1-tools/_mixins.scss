@@ -49,3 +49,10 @@
 		}
 	}
 }
+
+@mixin truncate( $lines_to_show: 3 ) {
+	display: -webkit-box;
+	-webkit-line-clamp: $lines_to_show;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}

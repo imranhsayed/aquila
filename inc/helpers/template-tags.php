@@ -108,12 +108,19 @@ function aquila_posted_by() {
  * @return bool|string
  */
 function aquila_the_excerpt( $trim_character_count = 0 ) {
+	$post_ID = get_the_ID();
+
+	if ( empty( $post_ID ) ) {
+		return null;
+	}
+
 	if ( has_excerpt() || 0 === $trim_character_count ) {
 		the_excerpt();
+
 		return;
 	}
 
-        $excerpt = wp_html_excerpt( get_the_excerpt( $post_ID ), $trim_character_count, '[...]' );
+	$excerpt = wp_html_excerpt( get_the_excerpt( $post_ID ), $trim_character_count, '[...]' );
 
 
 	echo $excerpt;

@@ -18,17 +18,19 @@ $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );
 	if ( $has_post_thumbnail ) {
 		?>
 		<div class="entry-image mb-3">
-			<a href="<?php echo esc_url( get_permalink() ); ?>">
-				<?php
-				the_post_custom_thumbnail(
-					$the_post_id,
-					'featured-thumbnail',
-					[
-						'sizes' => '(max-width: 350px) 350px, 233px',
-						'class' => 'attachment-featured-large size-featured-image'
-					]
-				)
-				?>
+			<a class="d-block" href="<?php echo esc_url( get_permalink() ); ?>">
+				<figure class="img-container">
+					<?php
+					the_post_custom_thumbnail(
+						$the_post_id,
+						'featured-thumbnail',
+						[
+							'sizes' => '(max-width: 350px) 350px, 233px',
+							'class' => 'attachment-featured-large size-featured-image'
+						]
+					)
+					?>
+				</figure>
 			</a>
 		</div>
 		<?php
@@ -43,7 +45,7 @@ $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );
 		);
 	} else {
 		printf(
-			'<h2 class="entry-title mb-3"><a class="text-dark" href="%1$s">%2$s</a></h2>',
+			'<h2 class="entry-title post-card-title mb-3"><a class="text-dark" href="%1$s">%2$s</a></h2>',
 			esc_url( get_the_permalink() ),
 			wp_kses_post( get_the_title() )
 		);

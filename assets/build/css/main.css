@@ -593,7 +593,7 @@ h1 {
 
 h2 {
   font-size: 31.5px;
-  line-height: 1.27; }
+  line-height: 1; }
 
 h3 {
   font-size: 24.5px;
@@ -934,7 +934,14 @@ object {
 .nav-item:hover .dropdown-menu:not(.show) {
   display: block; }
 
+.custom-logo-link img {
+  max-width: 150px;
+  margin-right: 20px; }
+
 /* stylelint-enable */
+.search-form input.form-control {
+  margin: 0;
+  padding: 18px 12px; }
 
 
 /*# sourceMappingURL=main.css.map*/

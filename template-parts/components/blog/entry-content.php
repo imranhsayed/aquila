@@ -19,8 +19,8 @@
 					__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'aquila' ),
 					[
 						'span' => [
-							'class' => []
-						]
+							'class' => [],
+						],
 					]
 				),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
@@ -35,8 +35,11 @@
 		);
 
 	} else {
-		aquila_the_excerpt( 200 );
-		printf( '<br>' );
+		?>
+		<div class="truncate-4">
+			<?php aquila_the_excerpt( 200 ); ?>
+		</div>
+		<?php
 		echo aquila_excerpt_more();
 	}
 

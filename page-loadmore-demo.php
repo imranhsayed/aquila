@@ -14,7 +14,7 @@ $loadmore_posts = Loadmore_Posts::get_instance();
 ?>
 
 <div class="container">
-	<h1 class="mb-4">Loadmore Demo</h1>
+	<h1 class="mb-4">Loadmore/Infinite Scroll Demo</h1>
 	<?php $loadmore_posts->post_script_load_more(); ?>
 </div>
 

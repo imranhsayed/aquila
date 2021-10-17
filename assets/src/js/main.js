@@ -1,5 +1,6 @@
 import './clock';
 import './carousel';
+import './posts/loadmore';
 
 // Styles
 import '../sass/main.scss';

@@ -22,7 +22,7 @@ class Blocks {
 		/**
 		 * Actions.
 		 */
-		add_filter( 'block_categories', [ $this, 'add_block_categories' ] );
+		add_filter( 'block_categories_all', [ $this, 'add_block_categories' ] );
 	}
 
 	/**

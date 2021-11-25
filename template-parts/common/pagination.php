@@ -18,8 +18,8 @@ if ( 1 < $args['total_pages'] ) {
 			'format' => 'page/%#%',
 			'current' => $args['current_page'],
 			'total' => $args['total_pages'],
-			'prev_text' => __( '« Prev', 'wpr' ),
-			'next_text' => __( 'Next »', 'wpr' ),
+			'prev_text' => __( '« Prev', 'aquila' ),
+			'next_text' => __( 'Next »', 'aquila' ),
 		] );
 		?>
 	</div>

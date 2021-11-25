@@ -10,6 +10,8 @@
 			this.ajaxUrl = siteConfig?.ajaxUrl ?? '';
 			this.ajaxNonce = siteConfig?.ajax_nonce ?? '';
 			this.loadMoreBtn = $( '#load-more' );
+			this.loadingTextEl = $( '#loading-text' );
+			this.isRequestProcessing = false;
 
 			this.options = {
 				root: null,
@@ -24,6 +26,8 @@
 			if ( ! this.loadMoreBtn.length ) {
 				return;
 			}
+			
+			this.totalPagesCount = $( '#post-pagination' ).data( 'max-pages' );
 
 			/**
 			 * Add the IntersectionObserver api, and listen to the load more intersection status.
@@ -71,11 +75,12 @@
 		handleLoadMorePosts() {
 			// Get page no from data attribute of load-more button.
 			const page = this.loadMoreBtn.data( 'page' );
-			if ( ! page ) {
+			if ( ! page || this.isRequestProcessing ) {
 				return null;
 			}
 
-			const newPage = parseInt( page ) + 1; // Increment page count by one.
+			const nextPage = parseInt( page ) + 1; // Increment page count by one.
+			this.isRequestProcessing = true;
 
 			$.ajax( {
 				url: this.ajaxUrl,
@@ -86,18 +91,30 @@
 					ajax_nonce: this.ajaxNonce,
 				},
 				success: ( response ) => {
-					if ( 0 === parseInt( response ) ) {
-						this.loadMoreBtn.remove();
-					} else {
-						this.loadMoreBtn.data( 'page', newPage );
-						$( '#load-more-content' ).append( response );
-					}
+					this.loadMoreBtn.data( 'page', nextPage );
+					$( '#load-more-content' ).append( response );
+					this.removeLoadMoreIfOnLastPage( nextPage );
+					this.isRequestProcessing = false;
 				},
 				error: ( response ) => {
-					// console.log( response );
+					console.log( response );
+					this.isRequestProcessing = false;
 				},
 			} );
 		}
+		
+		
+		/**
+		 * Remove Load more Button If on last page.
+		 *
+		 * @param {int} nextPage New Page.
+		 */
+		removeLoadMoreIfOnLastPage( nextPage ) {
+			if ( nextPage + 1 > this.totalPagesCount ) {
+				this.loadMoreBtn.remove();
+			}
+		}
+		
 	}
 
 	new LoadMore();

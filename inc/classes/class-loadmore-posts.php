@@ -124,4 +124,6 @@ class Loadmore_Posts {
 		<?php
 	}
 
+
+
 }

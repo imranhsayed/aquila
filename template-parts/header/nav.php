@@ -36,6 +36,8 @@ $header_menus   = wp_get_nav_menu_items( $header_menu_id );
 							$has_sub_menu_class = ! empty( $has_children ) ? 'has-submenu' : '';
 							$link_target        = ! empty( $menu_item->target ) && '_blank' === $menu_item->target ? '_blank' : '_self';
 
+							// Note_: Similar to $menu_item->target, there are other keys available in the $menu_item, such as classes. You can more key values if you need.
+
 							if ( ! $has_children ) {
 								?>
 								<li class="nav-item">

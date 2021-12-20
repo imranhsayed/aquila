@@ -48,6 +48,8 @@ get_header();
 						<?php
 						endif;
 
+						// For Single Post loadmore button, uncomment this code and comment next and prev link code below.
+						// echo do_shortcode( '[single_post_listings]' )
 						?>
 					</div>
 					<?php

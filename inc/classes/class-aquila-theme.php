@@ -23,6 +23,7 @@ class AQUILA_THEME {
 		Block_Patterns::get_instance();
 		Loadmore_Posts::get_instance();
 		Loadmore_Single::get_instance();
+		Register_Post_Types::get_instance();
 
 		$this->setup_hooks();
 	}

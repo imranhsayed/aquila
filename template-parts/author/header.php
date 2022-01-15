@@ -3,7 +3,7 @@
 /**
  * Author Header Template Part.
  *
- * @package WPR
+ * @package Aquila
  */
 
 $author_email = get_the_author_meta( 'user_email' );

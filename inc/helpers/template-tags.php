@@ -211,7 +211,7 @@ function aquila_the_post_pagination( $current_page_no, $posts_per_page, $article
 
 		// First Page
 		if ( 1 !== $current_page_no && ! empty( $first_page_url ) ) {
-			printf( '<a class="first-pagination-link btn border border-secondary mr-2" href="%1$s" title="first-pagination-link">%2$s</a>', esc_url( $first_page_url ), __( 'First', 'wpr' ) );
+			printf( '<a class="first-pagination-link btn border border-secondary mr-2" href="%1$s" title="first-pagination-link">%2$s</a>', esc_url( $first_page_url ), __( 'First', 'aquila' ) );
 		}
 
 		echo paginate_links( [
@@ -226,7 +226,7 @@ function aquila_the_post_pagination( $current_page_no, $posts_per_page, $article
 		// Last Page
 		if ( $current_page_no < $total_pages && !empty( $last_page_url ) ) {
 
-			printf( '<a class="last-pagination-link btn border border-secondary ml-2" href="%1$s" title="last-pagination-link">%2$s</a>', esc_url( $last_page_url ), __( 'Last', 'wpr' ) );
+			printf( '<a class="last-pagination-link btn border border-secondary ml-2" href="%1$s" title="last-pagination-link">%2$s</a>', esc_url( $last_page_url ), __( 'Last', 'aquila' ) );
 		}
 
 		?>

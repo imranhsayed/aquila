@@ -169,3 +169,57 @@ function aquila_pagination() {
 
 	printf( '<nav class="aquila-pagination clearfix">%s</nav>', wp_kses( paginate_links( $args ), $allowed_tags ) );
 }
+
+/**
+ * Checks to see if the specified user id has a uploaded the image via wp_admin.
+ *
+ * @return bool  Whether or not the user has a gravatar
+ */
+function aquila_is_uploaded_via_wp_admin( $gravatar_url ) {
+
+	$parsed_url = wp_parse_url( $gravatar_url );
+
+	$query_args = ! empty( $parsed_url['query'] ) ? $parsed_url['query'] : '';
+
+	// If query args is empty means, user has uploaded gravatar.
+	return empty( $query_args );
+
+}
+
+/**
+ * If the gravatar is uploaded returns true.
+ *
+ * There are two things we need to check, If user has uploaded the gravatar:
+ * 1. from WP Dashboard, or
+ * 2. or gravatar site.
+ *
+ * If any of the above condition is true, user has valid gravatar,
+ * and the function will return true.
+ *
+ * 1. For Scenario 1: Upload from WP Dashboard:
+ * We check if the query args is present or not.
+ *
+ * 2. For Scenario 2: Upload on Gravatar site:
+ * When constructing the URL, use the parameter d=404.
+ * This will cause Gravatar to return a 404 error rather than an image if the user hasn't set a picture.
+ *
+ * @param $user_email
+ *
+ * @return bool
+ */
+function aquila_has_gravatar( $user_email ) {
+
+	$gravatar_url = get_avatar_url( $user_email );
+
+	if ( aquila_is_uploaded_via_wp_admin( $gravatar_url ) ) {
+		return true;
+	}
+
+	$gravatar_url = sprintf( '%s&d=404', $gravatar_url );
+
+	// Make a request to $gravatar_url and get the header
+	$headers = @get_headers( $gravatar_url );
+
+	// If request status is 200, which means user has uploaded the avatar on gravatar site
+	return preg_match( "|200|", $headers[0] );
+}

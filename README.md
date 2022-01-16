@@ -9,6 +9,7 @@ This theme uses Bootstrap. [Learn](https://www.youtube.com/playlist?list=PLD8nQC
 </a>
 
 ## [Tutorial Course](https://codeytek.com/course/advanced-wordpress-theme-development-course/)
+## Also See - [Advanced WordPress Plugin Development](https://github.com/imranhsayed/aquila-features)
 
 ## Features
 

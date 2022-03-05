@@ -52,7 +52,7 @@
 		"file-loader": "^6.0.0",
 		"lodash": "^4.17.21",
 		"mini-css-extract-plugin": "^0.9.0",
-		"node-sass": "^4.14.1",
+		"node-sass": "^7.0.0",
 		"optimize-css-assets-webpack-plugin": "^5.0.3",
 		"sass-loader": "^9.0.3",
 		"sass-mq": "^5.0.1",

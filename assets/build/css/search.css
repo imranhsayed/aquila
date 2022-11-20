@@ -113,10 +113,14 @@
 }
 .checkbox-accordion__child .checkbox-text {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.3px;
   line-height: 1.6;
   margin-left: 6px;
+}
+
+.aquila-search {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=search.css.map*/

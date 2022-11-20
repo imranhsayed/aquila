@@ -1,7 +1,7 @@
 /**
  * External dependencies.
  */
-import { getFiltersFromUrl, getUrlWithFilters } from './helpers';
+import { getFiltersFromUrl, getResultMarkup, getUrlWithFilters } from './helpers';
 
 const { persist, create, stores } = window.zustand;
 
@@ -15,8 +15,9 @@ import { STORE_NAME } from './constants';
  */
 export const DEFAULT_STATE = {
 	restApiUrl: '',
+	rootUrl: '',
 	url: '',
-	filterKeys: [ 'categories', 'post_tag' ],
+	filterKeys: [ 'category', 'post_tag' ],
 	filters: {},
 	filterIds: [],
 	pageNo: 1,
@@ -31,7 +32,7 @@ const PERSISTENT_STATE_KEYS = [];
  * @param {Object} settings settings.
  */
 const initialize = ( settings = {} ) => {
-	const stateFromUrl = getStateFromUrl( settings?.filter_ids ?? {} );
+	const stateFromUrl = getStateFromUrl( settings?.root_url ?? {} );
 	setStateFromUrl( settings || {}, stateFromUrl || {} );
 	getResult();
 };
@@ -39,29 +40,21 @@ const initialize = ( settings = {} ) => {
 /**
  * Get State From Url.
  *
- * @param {Object} filterIds Filter Ids.
+ * @param {String} rootUrl Root Url.
  *
  * @return {Object} data Data containing filters, page no, and url.
  */
-const getStateFromUrl = ( filterIds = {} ) => {
+const getStateFromUrl = ( rootUrl = '' ) => {
 	const { filterKeys } = getState();
 	const url = new URL( window.location.href );
 	let data = {};
 	
 	// Build data from URL.
-	// If it's a non-legacy URL, add filters and page no to data.
-	data = getFiltersFromUrl( url );
+	// Add filters and page no to data.
+	data = getFiltersFromUrl( url, filterKeys );
 	
-	// // Get 'Selected Items Values' from filters, and add it to 'data' object.
-	// const selectedItemValues = getSelectedItemsFromFilters( data?.filters ?? {}, filterIds, filterKeys );
-	// data.selectedItems = selectedItemValues || [];
-	//
-	// // Get the 'Selected Items Labels Data' from selectedItemValues, and add it to 'data' object..
-	// const labelsDataForMarkup = getSelectedFiltersLabels( selectedItemValues, filterKeys );
-	// data.selectedItemsLabelsData = labelsDataForMarkup || [];
-	//
-	// // Get url with filter selection.
-	// data.url = getUrlWithFilters( data?.filters ?? {}, filterKeys );
+	// Get url with filter selection.
+	data.url = getUrlWithFilters( data?.filters ?? {}, rootUrl );
 	
 	return data;
 };
@@ -106,12 +99,14 @@ const getResult = () => {
 	fetch( fetchUrl )
 		.then( ( response ) => response.json() )
 		.then( ( responseData ) => {
-			console.log( 'responseData', responseData );
-			// setState( {
-			// 	loading: false,
-			// 	resultCount: responseData?.data,
-			// 	resultMarkup: responseData?.rendered,
-			// } );
+			const resultMarkup = getResultMarkup( responseData?.posts ?? [], responseData?.total_posts ?? 0 );
+			setState( {
+				loading: false,
+				resultCount: responseData?.total_posts ?? 0,
+				resultPosts: responseData?.posts ?? [],
+				resultMarkup: resultMarkup || '',
+				noOfPages: responseData?.no_of_pages ?? 0,
+			} );
 		} );
 };
 
@@ -121,7 +116,7 @@ const getResult = () => {
  * @param {Object} currentSelection currentSelection
  */
 const addFilter = ( currentSelection = {} ) => {
-	const { filters, filterKeys } = getState();
+	const { filters, filterKeys, rootUrl } = getState();
 	const { key, value } = currentSelection || {};
 	console.log( 'currentSelection', currentSelection, filters[key] );
 	
@@ -132,18 +127,17 @@ const addFilter = ( currentSelection = {} ) => {
 		...newFilters,
 		[ key ]: [ ...new Set( filterValues ) ],
 	};
-	console.log( 'newFilters', newFilters );
 	
 	// Add filter selections to URL and update URL.
-	// const url = getUrlWithFilters( newFilters, filterKeys );
-	// updateUrl( url );
+	const url = getUrlWithFilters( newFilters, rootUrl );
+	updateUrl( url );
 	
 	/**
 	 * Update state with the new data.
 	 * We set loading to true, before getting trips.
 	 */
 	setState( {
-		url: '',
+		url,
 		currentSelection,
 		filters: newFilters,
 		loading: true,
@@ -159,7 +153,7 @@ const addFilter = ( currentSelection = {} ) => {
  * @param currentSelection
  */
 const deleteFilter = ( currentSelection = {} ) => {
-	const { filters, filterKeys } = getState();
+	const { filters, rootUrl } = getState();
 	const { key, value } = currentSelection || {};
 	
 	let newFilters = { ...filters };
@@ -185,8 +179,12 @@ const deleteFilter = ( currentSelection = {} ) => {
 		}
 	} );
 	
+	// Add filter selections to URL and update URL.
+	const url = getUrlWithFilters( newFilters, rootUrl );
+	updateUrl( url );
+	
 	setState( {
-		url: '',
+		url,
 		currentSelection,
 		filters: newFilters,
 		loading: true,

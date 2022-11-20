@@ -21,47 +21,16 @@ class AquilaSearch extends HTMLElement {
 	constructor() {
 		super();
 		
-		// Subscribe to updates.
-		subscribe( this.update.bind( this ) );
-		
 		// Initialize State.
 		const state = getState();
 		state.initialize( search_settings );
-	}
-	
-	/**
-	 * Update the component.
-	 *
-	 * @param {Object} currentState Current state.
-	 */
-	update( currentState = {} ) {
-		console.log( 'currentState', currentState );
 	}
 }
 
 /**
  * AquilaFilters Class.
  */
-class AquilaFilters extends HTMLElement {
-	/**
-	 * Constructor.
-	 */
-	constructor() {
-		super();
-		
-		// Subscribe to updates.
-		subscribe( this.update.bind( this ) );
-	}
-	
-	/**
-	 * Update the component.
-	 *
-	 * @param {Object} currentState Current state.
-	 */
-	update( currentState = {} ) {
-		console.log( 'currentState', currentState );
-	}
-}
+class AquilaFilters extends HTMLElement {}
 
 /**
  * AquilaCheckboxAccordion Class.
@@ -82,34 +51,37 @@ class AquilaCheckboxAccordion extends HTMLElement {
 			return;
 		}
 		
-		// Subscribe to store.
-		subscribe( this.update.bind( this ) );
-		
 		this.accordionHandle.addEventListener( 'click', ( event ) => toggleAccordionContent( event, this, this.content ) );
 	}
 	
 	/**
-	 * Update.
+	 * Observe Attributes.
 	 *
-	 * @param {Object} currentState CurrentState.
+	 * @return {string[]} Attributes to be observed.
 	 */
-	update( currentState = {} ) {
-		if ( ! this.filterKey ) {
-			return;
-		}
-		const { checkboxItems } = currentState;
-		
+	static get observedAttributes() {
+		return [ 'active' ];
+	}
+	
+	/**
+	 * Attributes callback.
+	 *
+	 * Fired on attribute change.
+	 *
+	 * @param {string} name Attribute Name.
+	 * @param {string} oldValue Attribute's Old Value.
+	 * @param {string} newValue Attribute's New Value.
+	 */
+	attributeChangedCallback( name, oldValue, newValue ) {
 		/**
 		 * If the state of this checkbox filter is open, then set then
 		 * active state of this component to true, so it can be opened.
 		 */
-		// if ( checkboxItems[ this.filterKey ].isOpen ) {
-		// 	this.setAttribute( 'active', 'true' );
-		// 	this.content.style.height = 'auto';
-		// } else {
-		// 	this.removeAttribute( 'active' );
-		// 	this.content.style.height = '0';
-		// }
+		if ( 'active' === name ) {
+			this.content.style.height = 'auto';
+		} else {
+			this.content.style.height = '0px';
+		}
 	}
 }
 
@@ -122,9 +94,13 @@ class AquilaCheckboxAccordionChild extends HTMLElement {
 	 */
 	constructor() {
 		super();
+		
 		this.content = this.querySelector( '.checkbox-accordion__child-content' );
 		this.accordionHandle = this.querySelector( '.checkbox-accordion__child-handle-icon' );
 		this.inputEl = this.querySelector('input');
+
+		// Subscribe to updates.
+		subscribe( this.update.bind( this ) );
 		
 		if ( this.accordionHandle && this.content ) {
 			this.accordionHandle.addEventListener( 'click', ( event ) => toggleAccordionContent( event, this, this.content ) );
@@ -134,6 +110,42 @@ class AquilaCheckboxAccordionChild extends HTMLElement {
 		}
 	}
 	
+	/**
+	 * Update the component.
+	 *
+	 * @param {Object} currentState Current state.
+	 */
+	update( currentState = {} ) {
+		
+		if ( ! this.inputEl ) {
+			return;
+		}
+
+		const { filters } = currentState;
+		this.inputKey = this.inputEl.getAttribute( 'data-key' );
+		this.inputValue = this.inputEl.getAttribute( 'value' );
+		this.selectedFiltersForCurrentkey = filters[ this.inputKey ] || [];
+		this.parentEl = this.inputEl.closest( '.checkbox-accordion' ) || {};
+		this.parentContentEl = this.inputEl.closest( '.checkbox-accordion__child-content' ) || {};
+		
+		/**
+		 * If the current input value is amongst the selected filters, the check it.
+		 * and set the attributes and styles to open the accordion.
+		 */
+		if ( this.selectedFiltersForCurrentkey.includes( parseInt( this.inputValue ) ) ) {
+			this.inputEl.checked = true;
+			this.parentEl.setAttribute( 'active', true );
+			if ( this.parentContentEl.style ) {
+				this.parentContentEl.style.height = 'auto';
+			}
+		}
+	}
+	
+	/**
+	 * Handle Checkbox input click.
+	 *
+	 * @param event
+	 */
 	handleCheckboxInputClick( event ) {
 		const { addFilter, deleteFilter } = getState();
 		const targetEl = event.target;
@@ -154,8 +166,40 @@ class AquilaCheckboxAccordionChild extends HTMLElement {
 }
 
 /**
+ * AquilaResults Class.
+ */
+class AquilaResults extends HTMLElement {
+	/**
+	 * Constructor.
+	 */
+	constructor() {
+		super();
+		
+		// Subscribe to updates.
+		subscribe( this.update.bind( this ) );
+	}
+	
+	/**
+	 * Update the component.
+	 *
+	 * @param {Object} currentState Current state.
+	 */
+	update( currentState = {} ) {
+		const { resultMarkup, loading } = currentState;
+		if ( loading ) {
+			this.innerHTML = '<p>Loading...</p>';
+		}
+		if ( resultMarkup && ! loading ) {
+			this.innerHTML = resultMarkup;
+		}
+	}
+}
+
+/**
  * Initialize.
  */
 customElements.define( 'aquila-checkbox-accordion', AquilaCheckboxAccordion );
 customElements.define( 'aquila-checkbox-accordion-child', AquilaCheckboxAccordionChild );
+customElements.define( 'aquila-filters', AquilaFilters );
+customElements.define( 'aquila-results', AquilaResults );
 customElements.define( 'aquila-search', AquilaSearch );

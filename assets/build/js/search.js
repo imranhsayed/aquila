@@ -162,8 +162,9 @@ var _window$zustand = window.zustand,
  */
 var DEFAULT_STATE = {
   restApiUrl: '',
+  rootUrl: '',
   url: '',
-  filterKeys: ['categories', 'post_tag'],
+  filterKeys: ['category', 'post_tag'],
   filters: {},
   filterIds: [],
   pageNo: 1,
@@ -178,9 +179,9 @@ var PERSISTENT_STATE_KEYS = [];
  * @param {Object} settings settings.
  */
 var initialize = function initialize() {
-  var _settings$filter_ids;
+  var _settings$root_url;
   var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var stateFromUrl = getStateFromUrl((_settings$filter_ids = settings === null || settings === void 0 ? void 0 : settings.filter_ids) !== null && _settings$filter_ids !== void 0 ? _settings$filter_ids : {});
+  var stateFromUrl = getStateFromUrl((_settings$root_url = settings === null || settings === void 0 ? void 0 : settings.root_url) !== null && _settings$root_url !== void 0 ? _settings$root_url : {});
   setStateFromUrl(settings || {}, stateFromUrl || {});
   getResult();
 };
@@ -188,32 +189,24 @@ var initialize = function initialize() {
 /**
  * Get State From Url.
  *
- * @param {Object} filterIds Filter Ids.
+ * @param {String} rootUrl Root Url.
  *
  * @return {Object} data Data containing filters, page no, and url.
  */
 var getStateFromUrl = function getStateFromUrl() {
-  var filterIds = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _data$filters, _data;
+  var rootUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var _getState = getState(),
     filterKeys = _getState.filterKeys;
   var url = new URL(window.location.href);
   var data = {};
 
   // Build data from URL.
-  // If it's a non-legacy URL, add filters and page no to data.
-  data = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getFiltersFromUrl"])(url);
+  // Add filters and page no to data.
+  data = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getFiltersFromUrl"])(url, filterKeys);
 
-  // // Get 'Selected Items Values' from filters, and add it to 'data' object.
-  // const selectedItemValues = getSelectedItemsFromFilters( data?.filters ?? {}, filterIds, filterKeys );
-  // data.selectedItems = selectedItemValues || [];
-  //
-  // // Get the 'Selected Items Labels Data' from selectedItemValues, and add it to 'data' object..
-  // const labelsDataForMarkup = getSelectedFiltersLabels( selectedItemValues, filterKeys );
-  // data.selectedItemsLabelsData = labelsDataForMarkup || [];
-  //
-  // // Get url with filter selection.
-  // data.url = getUrlWithFilters( data?.filters ?? {}, filterKeys );
-
+  // Get url with filter selection.
+  data.url = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getUrlWithFilters"])((_data$filters = (_data = data) === null || _data === void 0 ? void 0 : _data.filters) !== null && _data$filters !== void 0 ? _data$filters : {}, rootUrl);
   return data;
 };
 
@@ -224,14 +217,14 @@ var getStateFromUrl = function getStateFromUrl() {
  * @param {Object} stateFromUrl State From Url.
  */
 var setStateFromUrl = function setStateFromUrl() {
-  var _settings$root_url, _settings$rest_api_ur, _settings$filter_ids2;
+  var _settings$root_url2, _settings$rest_api_ur, _settings$filter_ids;
   var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var stateFromUrl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   // Set data to state.
   setState(_objectSpread({
-    rootUrl: (_settings$root_url = settings === null || settings === void 0 ? void 0 : settings.root_url) !== null && _settings$root_url !== void 0 ? _settings$root_url : '',
+    rootUrl: (_settings$root_url2 = settings === null || settings === void 0 ? void 0 : settings.root_url) !== null && _settings$root_url2 !== void 0 ? _settings$root_url2 : '',
     restApiUrl: (_settings$rest_api_ur = settings === null || settings === void 0 ? void 0 : settings.rest_api_url) !== null && _settings$rest_api_ur !== void 0 ? _settings$rest_api_ur : '',
-    filterIds: (_settings$filter_ids2 = settings === null || settings === void 0 ? void 0 : settings.filter_ids) !== null && _settings$filter_ids2 !== void 0 ? _settings$filter_ids2 : {},
+    filterIds: (_settings$filter_ids = settings === null || settings === void 0 ? void 0 : settings.filter_ids) !== null && _settings$filter_ids !== void 0 ? _settings$filter_ids : {},
     loading: true
   }, stateFromUrl));
 
@@ -259,12 +252,15 @@ var getResult = function getResult() {
   fetch(fetchUrl).then(function (response) {
     return response.json();
   }).then(function (responseData) {
-    console.log('responseData', responseData);
-    // setState( {
-    // 	loading: false,
-    // 	resultCount: responseData?.data,
-    // 	resultMarkup: responseData?.rendered,
-    // } );
+    var _responseData$posts, _responseData$total_p, _responseData$total_p2, _responseData$posts2, _responseData$no_of_p;
+    var resultMarkup = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getResultMarkup"])((_responseData$posts = responseData === null || responseData === void 0 ? void 0 : responseData.posts) !== null && _responseData$posts !== void 0 ? _responseData$posts : [], (_responseData$total_p = responseData === null || responseData === void 0 ? void 0 : responseData.total_posts) !== null && _responseData$total_p !== void 0 ? _responseData$total_p : 0);
+    setState({
+      loading: false,
+      resultCount: (_responseData$total_p2 = responseData === null || responseData === void 0 ? void 0 : responseData.total_posts) !== null && _responseData$total_p2 !== void 0 ? _responseData$total_p2 : 0,
+      resultPosts: (_responseData$posts2 = responseData === null || responseData === void 0 ? void 0 : responseData.posts) !== null && _responseData$posts2 !== void 0 ? _responseData$posts2 : [],
+      resultMarkup: resultMarkup || '',
+      noOfPages: (_responseData$no_of_p = responseData === null || responseData === void 0 ? void 0 : responseData.no_of_pages) !== null && _responseData$no_of_p !== void 0 ? _responseData$no_of_p : 0
+    });
   });
 };
 
@@ -277,7 +273,8 @@ var addFilter = function addFilter() {
   var currentSelection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var _getState3 = getState(),
     filters = _getState3.filters,
-    filterKeys = _getState3.filterKeys;
+    filterKeys = _getState3.filterKeys,
+    rootUrl = _getState3.rootUrl;
   var _ref = currentSelection || {},
     key = _ref.key,
     value = _ref.value;
@@ -287,18 +284,17 @@ var addFilter = function addFilter() {
   var newFilters = _objectSpread({}, filters);
   var filterValues = filters[key] ? [].concat(_toConsumableArray(filters[key]), [value]) : [value];
   newFilters = _objectSpread(_objectSpread({}, newFilters), {}, _defineProperty({}, key, _toConsumableArray(new Set(filterValues))));
-  console.log('newFilters', newFilters);
 
   // Add filter selections to URL and update URL.
-  // const url = getUrlWithFilters( newFilters, filterKeys );
-  // updateUrl( url );
+  var url = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getUrlWithFilters"])(newFilters, rootUrl);
+  updateUrl(url);
 
   /**
    * Update state with the new data.
    * We set loading to true, before getting trips.
    */
   setState({
-    url: '',
+    url: url,
     currentSelection: currentSelection,
     filters: newFilters,
     loading: true
@@ -317,7 +313,7 @@ var deleteFilter = function deleteFilter() {
   var currentSelection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var _getState4 = getState(),
     filters = _getState4.filters,
-    filterKeys = _getState4.filterKeys;
+    rootUrl = _getState4.rootUrl;
   var _ref2 = currentSelection || {},
     key = _ref2.key,
     value = _ref2.value;
@@ -339,8 +335,12 @@ var deleteFilter = function deleteFilter() {
       delete newFilters[key];
     }
   });
+
+  // Add filter selections to URL and update URL.
+  var url = Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getUrlWithFilters"])(newFilters, rootUrl);
+  updateUrl(url);
   setState({
-    url: '',
+    url: url,
     currentSelection: currentSelection,
     filters: newFilters,
     loading: true
@@ -399,13 +399,15 @@ stores[_constants__WEBPACK_IMPORTED_MODULE_1__["STORE_NAME"]] = store;
 /*!**********************************!*\
   !*** ./src/js/search/helpers.js ***!
   \**********************************/
-/*! exports provided: getFiltersFromUrl, getUrlWithFilters */
+/*! exports provided: getFiltersFromUrl, getUrlWithFilters, getResultMarkup */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFiltersFromUrl", function() { return getFiltersFromUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlWithFilters", function() { return getUrlWithFilters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResultMarkup", function() { return getResultMarkup; });
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure " + obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -413,6 +415,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Get Filters From Url.
  *
  * @param {Object} url URl.
+ * @param {Array} filterKeys Filter keys.
  *
  * @return {Object} data Data containing filters and pageNo.
  */
@@ -420,7 +423,7 @@ var getFiltersFromUrl = function getFiltersFromUrl() {
   var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var filterKeys = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var data = {};
-  if (!filterKeys.length) {
+  if (!url || !filterKeys.length) {
     return data;
   }
 
@@ -431,8 +434,7 @@ var getFiltersFromUrl = function getFiltersFromUrl() {
    * they exist in the url, push them to the filters data.
    */
   filterKeys.forEach(function (filterKey) {
-    var paramName = filterKeys[filterKey].name;
-    var paramValue = url.searchParams.get(paramName);
+    var paramValue = url.searchParams.get(filterKey);
 
     // If the value does not exits, return.
     if (!paramValue) {
@@ -440,18 +442,18 @@ var getFiltersFromUrl = function getFiltersFromUrl() {
     }
 
     // Set page no.
-    if (filterKeys.pageNo.name === paramName) {
+    if ('pageNo' === filterKey) {
       data.pageNo = parseInt(paramValue);
       return;
     }
 
-    // Get translated filter values.
-    var translatedFilterValues = paramValue.split(',').map(function (itemValue) {
+    // Get filter values.
+    var filterValues = paramValue.split(',').map(function (itemValue) {
       return parseInt(itemValue);
     });
 
     // Add paramValue to filters.
-    data.filters = _objectSpread(_objectSpread({}, data.filters), {}, _defineProperty({}, paramName, translatedFilterValues));
+    data.filters = _objectSpread(_objectSpread({}, data.filters), {}, _defineProperty({}, filterKey, filterValues));
   });
   return data;
 };
@@ -460,23 +462,21 @@ var getFiltersFromUrl = function getFiltersFromUrl() {
  * Get Url by Adding Filters.
  *
  * @param {Object} filters Filters.
- * @param {Object} filterKeys Keys.
+ * @param {String} rootUrl Root url.
  */
 var getUrlWithFilters = function getUrlWithFilters() {
-  var filters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var filterKeys = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  // Extract root url, excluding the currentSelection @todo check if we can get this via PHP.
-  var rootUrl = window.location.href.replace(window.location.search, '');
-
+  var _ref;
+  var filters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (_ref = {}, _objectDestructuringEmpty(_ref), _ref);
+  var rootUrl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   // Build URL.
   var url = new URL(rootUrl);
 
   // Remove the page parameter whenever any filter value is changed. (Pages should start over from Page 1)
-  url.searchParams.delete(filterKeys.pageNo.name);
+  url.searchParams.delete('pageNo');
 
   // 1.Add page number if it does not already exists and at least one filter is available.
-  if (!url.searchParams.has(filterKeys.pageNo.name) && Object.keys(filters).length) {
-    url.searchParams.append(filterKeys.pageNo.name, '1');
+  if (!url.searchParams.has('pageNo') && Object.keys(filters).length) {
+    url.searchParams.append('pageNo', '1');
   }
 
   // 2.Add the given keys value pairs in search params.
@@ -487,6 +487,28 @@ var getUrlWithFilters = function getUrlWithFilters() {
   // Covert url to string.
   url = url.toString();
   return url;
+};
+
+/**
+ * Get Results markup.
+ *
+ * @param posts
+ * @param totalPosts
+ * @return {string}
+ */
+var getResultMarkup = function getResultMarkup() {
+  var posts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var totalPosts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  if (!Array.isArray(posts) || !posts.length) {
+    return '';
+  }
+  var markup = "\n\t\t\t<div>\n\t\t\t\t<h5>Results: ".concat(totalPosts, "</h5>\n\t\t\t\t<div class=\"row\">");
+  posts.forEach(function (post) {
+    var _post$id, _post$permalink, _post$thumbnail, _post$permalink2, _post$title, _post$title2, _post$content, _post$permalink3, _post$title3;
+    markup += "\n\t\t<section id=\"post-".concat((_post$id = post === null || post === void 0 ? void 0 : post.id) !== null && _post$id !== void 0 ? _post$id : 0, "\" class=\"col-lg-4 col-md-6 col-sm-12 pb-4\">\n\t\t\t<header>\n\t\t\t\t<a href=\"").concat((_post$permalink = post === null || post === void 0 ? void 0 : post.permalink) !== null && _post$permalink !== void 0 ? _post$permalink : '', "\" class=\"block\">\n\t\t\t\t<figure class=\"img-container\">\n\t\t\t\t\t").concat((_post$thumbnail = post === null || post === void 0 ? void 0 : post.thumbnail) !== null && _post$thumbnail !== void 0 ? _post$thumbnail : '', "\n\t\t\t\t</figure>\n\t\t\t</header>\n\t\t\t<div class=\"post-excerpt my-4\">\n\t\t\t\t<a href=\"").concat((_post$permalink2 = post === null || post === void 0 ? void 0 : post.permalink) !== null && _post$permalink2 !== void 0 ? _post$permalink2 : '', "\" title=\"").concat((_post$title = post === null || post === void 0 ? void 0 : post.title) !== null && _post$title !== void 0 ? _post$title : '', "\">\n\t\t\t\t\t<h3 class=\"post-card-title\">").concat((_post$title2 = post === null || post === void 0 ? void 0 : post.title) !== null && _post$title2 !== void 0 ? _post$title2 : '', "</h3>\n\t\t\t\t</a>\n\t\t\t\t<div class=\"mb-4 truncate-4\">\n\t\t\t\t\t").concat((_post$content = post === null || post === void 0 ? void 0 : post.content) !== null && _post$content !== void 0 ? _post$content : '', "\n\t\t\t\t</div>\n\t\t\t\t<a href=\"").concat((_post$permalink3 = post === null || post === void 0 ? void 0 : post.permalink) !== null && _post$permalink3 !== void 0 ? _post$permalink3 : '', "\"  class=\"btn btn-primary\"  title=\"").concat((_post$title3 = post === null || post === void 0 ? void 0 : post.title) !== null && _post$title3 !== void 0 ? _post$title3 : '', "\">\n\t\t\t\t\tView More\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</section>\n\t\t");
+  });
+  markup += "\n\t\t</div>\n\t</div>";
+  return markup;
 };
 
 /***/ }),
@@ -503,9 +525,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/js/utils/index.js");
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/js/search/data.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
@@ -542,28 +564,12 @@ var AquilaSearch = /*#__PURE__*/function (_HTMLElement) {
     _classCallCheck(this, AquilaSearch);
     _this = _super.call(this);
 
-    // Subscribe to updates.
-    subscribe(_this.update.bind(_assertThisInitialized(_this)));
-
     // Initialize State.
     var state = getState();
     state.initialize(search_settings);
     return _this;
   }
-
-  /**
-   * Update the component.
-   *
-   * @param {Object} currentState Current state.
-   */
-  _createClass(AquilaSearch, [{
-    key: "update",
-    value: function update() {
-      var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      console.log('currentState', currentState);
-    }
-  }]);
-  return AquilaSearch;
+  return _createClass(AquilaSearch);
 }(HTMLElement);
 /**
  * AquilaFilters Class.
@@ -593,7 +599,6 @@ var AquilaFilters = /*#__PURE__*/function (_HTMLElement2) {
     key: "update",
     value: function update() {
       var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      console.log('currentState', currentState);
     }
   }]);
   return AquilaFilters;
@@ -619,9 +624,6 @@ var AquilaCheckboxAccordion = /*#__PURE__*/function (_HTMLElement3) {
     if (!_this3.accordionHandle || !_this3.content || !_this3.filterKey) {
       return _possibleConstructorReturn(_this3);
     }
-
-    // Subscribe to store.
-    subscribe(_this3.update.bind(_assertThisInitialized(_this3)));
     _this3.accordionHandle.addEventListener('click', function (event) {
       return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this3), _this3.content);
     });
@@ -629,30 +631,37 @@ var AquilaCheckboxAccordion = /*#__PURE__*/function (_HTMLElement3) {
   }
 
   /**
-   * Update.
+   * Observe Attributes.
    *
-   * @param {Object} currentState CurrentState.
+   * @return {string[]} Attributes to be observed.
    */
   _createClass(AquilaCheckboxAccordion, [{
-    key: "update",
-    value: function update() {
-      var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      if (!this.filterKey) {
-        return;
-      }
-      var checkboxItems = currentState.checkboxItems;
-
+    key: "attributeChangedCallback",
+    value:
+    /**
+     * Attributes callback.
+     *
+     * Fired on attribute change.
+     *
+     * @param {string} name Attribute Name.
+     * @param {string} oldValue Attribute's Old Value.
+     * @param {string} newValue Attribute's New Value.
+     */
+    function attributeChangedCallback(name, oldValue, newValue) {
       /**
        * If the state of this checkbox filter is open, then set then
        * active state of this component to true, so it can be opened.
        */
-      // if ( checkboxItems[ this.filterKey ].isOpen ) {
-      // 	this.setAttribute( 'active', 'true' );
-      // 	this.content.style.height = 'auto';
-      // } else {
-      // 	this.removeAttribute( 'active' );
-      // 	this.content.style.height = '0';
-      // }
+      if ('active' === name) {
+        this.content.style.height = 'auto';
+      } else {
+        this.content.style.height = '0px';
+      }
+    }
+  }], [{
+    key: "observedAttributes",
+    get: function get() {
+      return ['active'];
     }
   }]);
   return AquilaCheckboxAccordion;
@@ -673,6 +682,9 @@ var AquilaCheckboxAccordionChild = /*#__PURE__*/function (_HTMLElement4) {
     _this4.content = _this4.querySelector('.checkbox-accordion__child-content');
     _this4.accordionHandle = _this4.querySelector('.checkbox-accordion__child-handle-icon');
     _this4.inputEl = _this4.querySelector('input');
+
+    // Subscribe to updates.
+    subscribe(_this4.update.bind(_assertThisInitialized(_this4)));
     if (_this4.accordionHandle && _this4.content) {
       _this4.accordionHandle.addEventListener('click', function (event) {
         return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this4), _this4.content);
@@ -685,7 +697,39 @@ var AquilaCheckboxAccordionChild = /*#__PURE__*/function (_HTMLElement4) {
     }
     return _this4;
   }
+
+  /**
+   * Update the component.
+   *
+   * @param {Object} currentState Current state.
+   */
   _createClass(AquilaCheckboxAccordionChild, [{
+    key: "update",
+    value: function update() {
+      var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      if (!this.inputEl) {
+        return;
+      }
+      var filters = currentState.filters;
+      this.inputKey = this.inputEl.getAttribute('data-key');
+      this.inputValue = this.inputEl.getAttribute('value');
+      this.selectedFiltersForCurrentkey = filters[this.inputKey] || [];
+      this.parentEl = this.inputEl.closest('.checkbox-accordion') || {};
+      this.parentContentEl = this.inputEl.closest('.checkbox-accordion__child-content') || {};
+
+      /**
+       * If the current input value is amongst the selected filters, the check it.
+       * and set the attributes and styles to open the accordion.
+       */
+      if (this.selectedFiltersForCurrentkey.includes(parseInt(this.inputValue))) {
+        this.inputEl.checked = true;
+        this.parentEl.setAttribute('active', true);
+        if (this.parentContentEl.style) {
+          this.parentContentEl.style.height = 'auto';
+        }
+      }
+    }
+  }, {
     key: "handleCheckboxInputClick",
     value: function handleCheckboxInputClick(event) {
       var _getState = getState(),
@@ -709,10 +753,52 @@ var AquilaCheckboxAccordionChild = /*#__PURE__*/function (_HTMLElement4) {
   return AquilaCheckboxAccordionChild;
 }(HTMLElement);
 /**
+ * AquilaResults Class.
+ */
+var AquilaResults = /*#__PURE__*/function (_HTMLElement5) {
+  _inherits(AquilaResults, _HTMLElement5);
+  var _super5 = _createSuper(AquilaResults);
+  /**
+   * Constructor.
+   */
+  function AquilaResults() {
+    var _this5;
+    _classCallCheck(this, AquilaResults);
+    _this5 = _super5.call(this);
+
+    // Subscribe to updates.
+    subscribe(_this5.update.bind(_assertThisInitialized(_this5)));
+    return _this5;
+  }
+
+  /**
+   * Update the component.
+   *
+   * @param {Object} currentState Current state.
+   */
+  _createClass(AquilaResults, [{
+    key: "update",
+    value: function update() {
+      var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var resultMarkup = currentState.resultMarkup,
+        loading = currentState.loading;
+      if (loading) {
+        this.innerHTML = '<p>Loading...</p>';
+      }
+      if (resultMarkup && !loading) {
+        this.innerHTML = resultMarkup;
+      }
+    }
+  }]);
+  return AquilaResults;
+}(HTMLElement);
+/**
  * Initialize.
  */
 customElements.define('aquila-checkbox-accordion', AquilaCheckboxAccordion);
 customElements.define('aquila-checkbox-accordion-child', AquilaCheckboxAccordionChild);
+customElements.define('aquila-filters', AquilaFilters);
+customElements.define('aquila-results', AquilaResults);
 customElements.define('aquila-search', AquilaSearch);
 
 /***/ }),

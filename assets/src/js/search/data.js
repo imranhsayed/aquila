@@ -76,12 +76,12 @@ const setStateFromUrl = ( settings = {}, stateFromUrl = {} ) => {
 		...stateFromUrl,
 	} );
 	
-	// Action: Get trips with data from state.
+	// Action: Get results with data from state.
 	getResult();
 };
 
 /**
- * Get Trips.
+ * Get Results.
  */
 const getResult = () => {
 	const { restApiUrl, filters, pageNo } = getState();
@@ -134,7 +134,7 @@ const addFilter = ( currentSelection = {} ) => {
 	
 	/**
 	 * Update state with the new data.
-	 * We set loading to true, before getting trips.
+	 * We set loading to true, before getting results.
 	 */
 	setState( {
 		url,
@@ -143,7 +143,7 @@ const addFilter = ( currentSelection = {} ) => {
 		loading: true,
 	} );
 	
-	// Get Trips.
+	// Get Results.
 	getResult();
 };
 

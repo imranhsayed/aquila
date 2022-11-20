@@ -228,12 +228,12 @@ var setStateFromUrl = function setStateFromUrl() {
     loading: true
   }, stateFromUrl));
 
-  // Action: Get trips with data from state.
+  // Action: Get results with data from state.
   getResult();
 };
 
 /**
- * Get Trips.
+ * Get Results.
  */
 var getResult = function getResult() {
   var _getState2 = getState(),
@@ -291,7 +291,7 @@ var addFilter = function addFilter() {
 
   /**
    * Update state with the new data.
-   * We set loading to true, before getting trips.
+   * We set loading to true, before getting results.
    */
   setState({
     url: url,
@@ -300,7 +300,7 @@ var addFilter = function addFilter() {
     loading: true
   });
 
-  // Get Trips.
+  // Get Results.
   getResult();
 };
 
@@ -577,31 +577,11 @@ var AquilaSearch = /*#__PURE__*/function (_HTMLElement) {
 var AquilaFilters = /*#__PURE__*/function (_HTMLElement2) {
   _inherits(AquilaFilters, _HTMLElement2);
   var _super2 = _createSuper(AquilaFilters);
-  /**
-   * Constructor.
-   */
   function AquilaFilters() {
-    var _this2;
     _classCallCheck(this, AquilaFilters);
-    _this2 = _super2.call(this);
-
-    // Subscribe to updates.
-    subscribe(_this2.update.bind(_assertThisInitialized(_this2)));
-    return _this2;
+    return _super2.apply(this, arguments);
   }
-
-  /**
-   * Update the component.
-   *
-   * @param {Object} currentState Current state.
-   */
-  _createClass(AquilaFilters, [{
-    key: "update",
-    value: function update() {
-      var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    }
-  }]);
-  return AquilaFilters;
+  return _createClass(AquilaFilters);
 }(HTMLElement);
 /**
  * AquilaCheckboxAccordion Class.
@@ -613,21 +593,21 @@ var AquilaCheckboxAccordion = /*#__PURE__*/function (_HTMLElement3) {
    * Constructor.
    */
   function AquilaCheckboxAccordion() {
-    var _this3;
+    var _this2;
     _classCallCheck(this, AquilaCheckboxAccordion);
-    _this3 = _super3.call(this);
+    _this2 = _super3.call(this);
 
     // Elements.
-    _this3.filterKey = _this3.getAttribute('key');
-    _this3.content = _this3.querySelector('.checkbox-accordion__content');
-    _this3.accordionHandle = _this3.querySelector('.checkbox-accordion__handle');
-    if (!_this3.accordionHandle || !_this3.content || !_this3.filterKey) {
-      return _possibleConstructorReturn(_this3);
+    _this2.filterKey = _this2.getAttribute('key');
+    _this2.content = _this2.querySelector('.checkbox-accordion__content');
+    _this2.accordionHandle = _this2.querySelector('.checkbox-accordion__handle');
+    if (!_this2.accordionHandle || !_this2.content || !_this2.filterKey) {
+      return _possibleConstructorReturn(_this2);
     }
-    _this3.accordionHandle.addEventListener('click', function (event) {
-      return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this3), _this3.content);
+    _this2.accordionHandle.addEventListener('click', function (event) {
+      return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this2), _this2.content);
     });
-    return _this3;
+    return _this2;
   }
 
   /**
@@ -676,26 +656,26 @@ var AquilaCheckboxAccordionChild = /*#__PURE__*/function (_HTMLElement4) {
    * Constructor.
    */
   function AquilaCheckboxAccordionChild() {
-    var _this4;
+    var _this3;
     _classCallCheck(this, AquilaCheckboxAccordionChild);
-    _this4 = _super4.call(this);
-    _this4.content = _this4.querySelector('.checkbox-accordion__child-content');
-    _this4.accordionHandle = _this4.querySelector('.checkbox-accordion__child-handle-icon');
-    _this4.inputEl = _this4.querySelector('input');
+    _this3 = _super4.call(this);
+    _this3.content = _this3.querySelector('.checkbox-accordion__child-content');
+    _this3.accordionHandle = _this3.querySelector('.checkbox-accordion__child-handle-icon');
+    _this3.inputEl = _this3.querySelector('input');
 
     // Subscribe to updates.
-    subscribe(_this4.update.bind(_assertThisInitialized(_this4)));
-    if (_this4.accordionHandle && _this4.content) {
-      _this4.accordionHandle.addEventListener('click', function (event) {
-        return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this4), _this4.content);
+    subscribe(_this3.update.bind(_assertThisInitialized(_this3)));
+    if (_this3.accordionHandle && _this3.content) {
+      _this3.accordionHandle.addEventListener('click', function (event) {
+        return Object(_utils__WEBPACK_IMPORTED_MODULE_0__["toggleAccordionContent"])(event, _assertThisInitialized(_this3), _this3.content);
       });
     }
-    if (_this4.inputEl) {
-      _this4.inputEl.addEventListener('click', function (event) {
-        return _this4.handleCheckboxInputClick(event);
+    if (_this3.inputEl) {
+      _this3.inputEl.addEventListener('click', function (event) {
+        return _this3.handleCheckboxInputClick(event);
       });
     }
-    return _this4;
+    return _this3;
   }
 
   /**
@@ -729,6 +709,12 @@ var AquilaCheckboxAccordionChild = /*#__PURE__*/function (_HTMLElement4) {
         }
       }
     }
+
+    /**
+     * Handle Checkbox input click.
+     *
+     * @param event
+     */
   }, {
     key: "handleCheckboxInputClick",
     value: function handleCheckboxInputClick(event) {
@@ -762,13 +748,13 @@ var AquilaResults = /*#__PURE__*/function (_HTMLElement5) {
    * Constructor.
    */
   function AquilaResults() {
-    var _this5;
+    var _this4;
     _classCallCheck(this, AquilaResults);
-    _this5 = _super5.call(this);
+    _this4 = _super5.call(this);
 
     // Subscribe to updates.
-    subscribe(_this5.update.bind(_assertThisInitialized(_this5)));
-    return _this5;
+    subscribe(_this4.update.bind(_assertThisInitialized(_this4)));
+    return _this4;
   }
 
   /**

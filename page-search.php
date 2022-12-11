@@ -14,6 +14,7 @@ $filters_data = get_filters_data();
 	<main id="main" class="site-main mt-5" role="main">
 		<aquila-search class="aquila-search row px-4">
 			<aquila-filters class="col-lg-3 col-md-3 col-sm-12 pb-4">
+				<aquila-clear-all-filters class="clear-all-filters"><button class="btn btn-secondary">Clear All filters</button></aquila-clear-all-filters>
 				<?php foreach ( $filters_data as $filter_data ) : ?>
 					<aquila-checkbox-accordion
 							class="checkbox-accordion"
@@ -147,7 +148,11 @@ $filters_data = get_filters_data();
 					</aquila-checkbox-accordion>
 				<?php endforeach; ?>
 			</aquila-filters>
-			<aquila-results class="col-lg-9 col-md-9 col-sm-12 pb-4"></aquila-results>
+			<div class="col-lg-9 col-md-9 col-sm-12 pb-4">
+				<aquila-results-count class="aquila-results-count"></aquila-results-count>
+				<aquila-results class="row"></aquila-results>
+				<aquila-loading-more class="aquila-loading-more"></aquila-loading-more>
+			</div>
 		</aquila-search>
 	</main>
 </div>

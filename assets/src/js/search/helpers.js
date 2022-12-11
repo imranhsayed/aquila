@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Get Filters From Url.
  *
@@ -58,14 +59,6 @@ export const getUrlWithFilters = ( filters = {} = {}, rootUrl = '' ) => {
 	// Build URL.
 	let url = new URL( rootUrl );
 	
-	// Remove the page parameter whenever any filter value is changed. (Pages should start over from Page 1)
-	url.searchParams.delete( 'pageNo' );
-	
-	// 1.Add page number if it does not already exists and at least one filter is available.
-	if ( ! url.searchParams.has( 'pageNo' ) && Object.keys( filters ).length ) {
-		url.searchParams.append( 'pageNo', '1' );
-	}
-	
 	// 2.Add the given keys value pairs in search params.
 	Object.keys( filters ).forEach( ( key ) => {
 		url.searchParams.set( key, filters[ key ] );
@@ -81,26 +74,24 @@ export const getUrlWithFilters = ( filters = {} = {}, rootUrl = '' ) => {
  * Get Results markup.
  *
  * @param posts
- * @param totalPosts
  * @return {string}
  */
-export const getResultMarkup = ( posts = [], totalPosts = 0 ) => {
+export const getResultMarkup = ( posts = [] ) => {
 	if ( ! Array.isArray( posts ) || ! posts.length ) {
 		return '';
 	}
 	
-	let markup = `
-			<div>
-				<h5>Results: ${totalPosts}</h5>
-				<div class="row">`;
+	let img = '';
+	let markup = ``;
 	
 	posts.forEach( post => {
+		img = post.thumbnail ? post.thumbnail : '<img src="https://via.placeholder.com/526x300" width="526" height="300"/>';
 		markup += `
 		<section id="post-${ post?.id ?? 0 }" class="col-lg-4 col-md-6 col-sm-12 pb-4">
 			<header>
 				<a href="${ post?.permalink ?? '' }" class="block">
 				<figure class="img-container">
-					${ post?.thumbnail ?? '' }
+					${ img }
 				</figure>
 			</header>
 			<div class="post-excerpt my-4">
@@ -118,9 +109,18 @@ export const getResultMarkup = ( posts = [], totalPosts = 0 ) => {
 		`;
 	} );
 	
-	markup += `
-		</div>
-	</div>`;
-	
 	return markup;
+};
+
+export const getLoadMoreMarkup = ( noOfPages = 0, currentPageNo = 1 ) => {
+	if ( parseInt( currentPageNo ) >= parseInt( noOfPages ) ) {
+		return '';
+	}
+	
+	return `<aquila-load-more
+				class="load-more-wrap"
+				next-page-no="${ parseInt( currentPageNo ) + 1 }"
+			>
+				<button class="btn btn-primary">Load More</button>
+			</aquila-load-more>`;
 }

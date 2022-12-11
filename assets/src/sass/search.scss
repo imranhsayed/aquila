@@ -161,3 +161,25 @@
 .aquila-search {
 	justify-content: center;
 }
+
+.aquila-results-count {
+	display: block;
+	padding-bottom: 20px;
+}
+
+.aquila-loading-more {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+}
+
+.clear-all-filters {
+	margin-bottom: 10px;
+	display: block;
+}
+
+.load-more-wrap {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}

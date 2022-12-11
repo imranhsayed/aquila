@@ -1,7 +1,7 @@
 /**
  * External dependencies.
  */
-import { getFiltersFromUrl, getResultMarkup, getUrlWithFilters } from './helpers';
+import { getFiltersFromUrl, getLoadMoreMarkup, getResultMarkup, getUrlWithFilters } from './helpers';
 
 const { persist, create, stores } = window.zustand;
 
@@ -21,6 +21,8 @@ export const DEFAULT_STATE = {
 	filters: {},
 	filterIds: [],
 	pageNo: 1,
+	resultCount: null,
+	noOfPages: 0,
 	resultMarkup: '',
 	loading: false,
 };
@@ -48,11 +50,11 @@ const getStateFromUrl = ( rootUrl = '' ) => {
 	const { filterKeys } = getState();
 	const url = new URL( window.location.href );
 	let data = {};
-	
+
 	// Build data from URL.
 	// Add filters and page no to data.
 	data = getFiltersFromUrl( url, filterKeys );
-	
+
 	// Get url with filter selection.
 	data.url = getUrlWithFilters( data?.filters ?? {}, rootUrl );
 	
@@ -75,13 +77,13 @@ const setStateFromUrl = ( settings = {}, stateFromUrl = {} ) => {
 		loading: true,
 		...stateFromUrl,
 	} );
-	
-	// Action: Get results with data from state.
+
+	// Action: Get result with data from state.
 	getResult();
 };
 
 /**
- * Get Results.
+ * Get Result.
  */
 const getResult = () => {
 	const { restApiUrl, filters, pageNo } = getState();
@@ -92,7 +94,7 @@ const getResult = () => {
 	// Add query-params to rest api url.
 	const params = {
 		...filters,
-		page_no: pageNo
+		page_no: pageNo,
 	};
 	const fetchUrl = restApiUrl + '?' + ( new URLSearchParams( params ) ).toString();
 	
@@ -100,11 +102,12 @@ const getResult = () => {
 		.then( ( response ) => response.json() )
 		.then( ( responseData ) => {
 			const resultMarkup = getResultMarkup( responseData?.posts ?? [], responseData?.total_posts ?? 0 );
+			const loadMoreMarkup = getLoadMoreMarkup( responseData?.no_of_pages ?? 0, pageNo );
 			setState( {
 				loading: false,
 				resultCount: responseData?.total_posts ?? 0,
 				resultPosts: responseData?.posts ?? [],
-				resultMarkup: resultMarkup || '',
+				resultMarkup: resultMarkup + loadMoreMarkup || '',
 				noOfPages: responseData?.no_of_pages ?? 0,
 			} );
 		} );
@@ -116,9 +119,8 @@ const getResult = () => {
  * @param {Object} currentSelection currentSelection
  */
 const addFilter = ( currentSelection = {} ) => {
-	const { filters, filterKeys, rootUrl } = getState();
+	const { filters, rootUrl } = getState();
 	const { key, value } = currentSelection || {};
-	console.log( 'currentSelection', currentSelection, filters[key] );
 	
 	// Get new filter values.
 	let newFilters = { ...filters };
@@ -140,10 +142,11 @@ const addFilter = ( currentSelection = {} ) => {
 		url,
 		currentSelection,
 		filters: newFilters,
+		pageNo: 1,
 		loading: true,
 	} );
 	
-	// Get Results.
+	// Get Result.
 	getResult();
 };
 
@@ -187,6 +190,7 @@ const deleteFilter = ( currentSelection = {} ) => {
 		url,
 		currentSelection,
 		filters: newFilters,
+		pageNo: 1,
 		loading: true,
 	} );
 	
@@ -212,6 +216,46 @@ const updateUrl = ( url ) => {
 	}
 };
 
+const loadMorePosts = ( nextPageNo = 1 ) => {
+	const { restApiUrl, resultMarkup, filters } = getState();
+	// Update page no in the fetch url.
+	const fetchUrl = getUrlWithFilters( { ...filters, page_no: nextPageNo }, restApiUrl );
+	
+	// Set State.
+	setState({
+		loadingMorePosts: true,
+		pageNo: nextPageNo,
+	});
+	
+	// Fetch load more results.
+	fetch( fetchUrl )
+		.then( ( response ) => response.json() )
+		.then( ( responseData ) => {
+			const moreResultMarkup = getResultMarkup( responseData?.posts ?? [] );
+			const loadMoreMarkup = getLoadMoreMarkup( responseData?.no_of_pages ?? 0, nextPageNo );
+			setState( {
+				loadingMorePosts: false,
+				resultPosts: responseData?.posts ?? [],
+				resultMarkup: resultMarkup + moreResultMarkup + loadMoreMarkup,
+			} );
+	} );
+};
+
+const clearAllFilters = () => {
+	const { rootUrl } = getState();
+	setState({
+		loading: true,
+		filters: {},
+		filterIds: [],
+		currentSelection: {},
+		pageNo: 1,
+	});
+	
+	updateUrl( rootUrl );
+	
+	getResult();
+};
+
 /**
  * Create store.
  */
@@ -222,6 +266,8 @@ export const store = create(
 			initialize,
 			addFilter,
 			deleteFilter,
+			loadMorePosts,
+			clearAllFilters,
 		} ),
 		{
 			name: STORE_NAME,

@@ -1,0 +1,148 @@
+/**
+ * Checkbox Accordion.
+ */
+.checkbox-accordion {
+  display: block;
+  position: relative;
+  padding: 12px 10px 12px 0;
+  border-top: 1px solid lightgrey;
+}
+.checkbox-accordion:last-child {
+  border-bottom: 1px solid lightgrey;
+}
+.checkbox-accordion__handle {
+  color: dodgerblue;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+}
+@media (hover: hover) {
+  .checkbox-accordion__handle:hover {
+    color: dodgerblue;
+  }
+}
+.checkbox-accordion__handle-icon {
+  display: inline-block;
+  border-right: 3px solid cornflowerblue;
+  border-bottom: 3px solid cornflowerblue;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-315deg);
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+}
+@media (hover: hover) {
+  .checkbox-accordion__handle:hover .checkbox-accordion__handle-icon {
+    opacity: 1;
+  }
+}
+.checkbox-accordion[active] .checkbox-accordion__handle-icon {
+  transform: rotate(-135deg);
+}
+.checkbox-accordion__handle-text {
+  padding-right: 10px;
+  line-height: 1.5;
+  font-weight: 350;
+}
+.checkbox-accordion__content {
+  height: 0;
+  overflow: hidden;
+  display: block;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: var(--ease-in-out-quart);
+}
+.checkbox-accordion__child {
+  display: block;
+}
+.checkbox-accordion__child > .checkbox-accordion__child-content {
+  padding: 0 0 0 19px;
+  height: 0;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: var(--ease-in-out-quart);
+}
+.checkbox-accordion__child-handle-icon {
+  display: inline-block;
+  cursor: pointer;
+  border-right: 3px solid cornflowerblue;
+  border-bottom: 3px solid cornflowerblue;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-315deg);
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+}
+.checkbox-accordion__child[active] > .checkbox-accordion__child-handle .checkbox-accordion__child-handle-icon {
+  transform: rotate(-135deg);
+}
+.checkbox-accordion__child .checkbox-accordion__child-handle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkbox-accordion__child .checkbox-accordion__child-handle.form-field {
+  margin-top: 16px;
+  padding-right: 2px;
+}
+@media (hover: hover) {
+  .checkbox-accordion__child .checkbox-accordion__child-handle:hover {
+    color: dodgerblue;
+  }
+}
+@media (hover: hover) {
+  .checkbox-accordion__child .checkbox-accordion__child-handle:hover .checkbox-accordion__child .checkbox-accordion__child-handle-icon {
+    opacity: 1;
+  }
+}
+.checkbox-accordion__child.checkbox-accordion__child--has-content[active] > .checkbox-accordion__child-handle-icon svg {
+  transform: rotate(-180deg);
+  opacity: 1;
+}
+.checkbox-accordion__child label.checkbox {
+  justify-content: flex-start;
+}
+.checkbox-accordion__child .checkbox-text {
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  margin-left: 6px;
+}
+
+.aquila-search {
+  justify-content: center;
+}
+
+.aquila-results-count {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.aquila-loading-more {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.clear-all-filters {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=search.css.map*/

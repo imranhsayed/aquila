@@ -1,0 +1,185 @@
+/**
+ * Checkbox Accordion.
+ */
+.checkbox-accordion {
+
+	$self: &;
+
+	display: block;
+	position: relative;
+	padding: 12px 10px 12px 0;
+	border-top: 1px solid lightgrey;
+
+	&:last-child {
+		border-bottom: 1px solid lightgrey;
+	}
+
+	&__handle {
+		color: dodgerblue;
+		cursor: pointer;
+		font-weight: 500;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		transition-property: all;
+		transition-duration: 0.6s;
+		transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+
+		&:hover {
+
+			@media (hover: hover) {
+				color: dodgerblue;
+			}
+		}
+
+		&-icon {
+			display: inline-block;
+			border-right: 3px solid cornflowerblue;
+			border-bottom: 3px solid cornflowerblue;
+			width: 10px;
+			height: 10px;
+			transform: rotate(-315deg);
+			transition-property: all;
+			transition-duration: .6s;
+			transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+		}
+
+		&:hover &-icon {
+
+			@media (hover: hover) {
+				opacity: 1;
+			}
+		}
+	}
+
+	&[active] {
+		#{$self}__handle-icon {
+			transform: rotate(-135deg);
+		}
+	}
+
+	&__handle-text {
+		padding-right: 10px;
+		line-height: 1.5;
+		font-weight: 350;
+	}
+
+	&__content {
+		height: 0;
+		overflow: hidden;
+		display: block;
+		transition-property: all;
+		transition-duration: .6s;
+		transition-timing-function: var(--ease-in-out-quart);
+	}
+
+	// Child Accordion.
+	&__child {
+
+		display: block;
+
+		> #{&}-content {
+			padding: 0 0 0 19px;
+			height: 0;
+			overflow: hidden;
+			transition-property: all;
+			transition-duration: .6s;
+			transition-timing-function: var(--ease-in-out-quart);
+		}
+
+		&-handle-icon {
+			display: inline-block;
+			cursor: pointer;
+			border-right: 3px solid cornflowerblue;
+			border-bottom: 3px solid cornflowerblue;
+			width: 10px;
+			height: 10px;
+			transform: rotate(-315deg);
+			transition-property: all;
+			transition-duration: .6s;
+			transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+		}
+
+		&[active] {
+
+			> #{$self}__child-handle #{$self}__child-handle-icon {
+				transform: rotate(-135deg);
+			}
+		}
+
+		#{$self}__child-handle {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			&.form-field {
+				margin-top: 16px;
+				padding-right: 2px;
+			}
+
+			&:hover {
+
+				@media (hover: hover) {
+					color: dodgerblue ;
+				}
+			}
+
+			&:hover &-icon {
+
+				@media (hover: hover) {
+					opacity: 1;
+				}
+			}
+		}
+
+		&#{&}--has-content {
+
+			&[active] {
+
+				> #{$self}__child-handle-icon svg {
+					transform: rotate(-180deg);
+					opacity: 1;
+				}
+			}
+		}
+
+		label.checkbox {
+			justify-content: flex-start;
+		}
+
+		.checkbox-text {
+			font-size: 15px;
+			font-weight: 300;
+			letter-spacing: 0.3px;
+			line-height: 1.6;
+			margin-left: 6px;
+		}
+	}
+}
+
+.aquila-search {
+	justify-content: center;
+}
+
+.aquila-results-count {
+	display: block;
+	padding-bottom: 20px;
+}
+
+.aquila-loading-more {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+}
+
+.clear-all-filters {
+	margin-bottom: 10px;
+	display: block;
+}
+
+.load-more-wrap {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}

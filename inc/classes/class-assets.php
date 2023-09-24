@@ -29,7 +29,7 @@ class Assets {
 		 * The 'enqueue_block_assets' hook includes styles and scripts both in editor and frontend,
 		 * except when is_admin() is used to include them conditionally
 		 */
-		add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_assets' ] );
+		add_action( 'init', [ $this, 'enqueue_editor_assets' ] );
 	}
 
 	public function register_styles() {
